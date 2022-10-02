@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人主頁</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/personal.css">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        .password {
+            position: relative;
+        }
+
+        .password .personalEye {
+            position: absolute;
+            top: 47%;
+            right: 5%;
+            transform: translateY(-50%);
+            z-index: 99999;
+        }
+    </style>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+    integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+<body>
+    <div class="cookie"></div>
+    <div class="cover"></div>
+
+
+    <div class="menum"></div>
+    <div class="menu"></div>
+    <div class="loginH"></div>
+    <div class="register"></div>
+    <div class="questionAsk"></div>
+    <div class="commonCard openPass"></div>
+    <div class="commonCard forgetPassword"></div>
+
+    <div class="commonCardSmall registerSmall"></div>
+    <div class="commonCardSmall openPassSmall"></div>
+    <div class="commonCardSmall forgetPasswordSmall"></div>
+    <div class="menu1"></div>
+
+    <div class="wrap">
+        <div class="big">
+            <h1>個人主頁</h1>
+            <img src="pic/personal/bigIcon.png" alt="">
+        </div>
+        <div class="info">
+            <form class="UpdateForm" action="system/personalUpdate.php" method="post" enctype="multipart/form-data">
+                <div class="photoSticker">
+                    <div class="circle">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="edit">
+                    <input type="file" name="photo" id="uploadPhoto">
+                    <label class="upload" for="uploadPhoto">
+                        <img src="pic/personal/upload.png" alt="">
+                        <h5>上傳頭像</h5>
+                    </label>
+
+                    <div class="delete" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="pic/personal/trash.png" alt="">
+                        <h5>刪除頭像</h5>
+                    </div>
+                </div>
+
+                <div class="name">
+                    <div class="firstName">
+                        <label for="firstName">姓氏*</label>
+                        <input id="firstName" name="firstName" type="text">
+                    </div>
+                    <div class="lastName">
+                        <label for="lastName">名字*</label>
+                        <input id="lastName" name="lastName" type="text">
+                    </div>
+                </div>
+                <div class="email">
+                    <label for="email">Email信箱*</label>
+                    <input id="email" name="email" type="email" disabled>
+                </div>
+
+                <div class="password">
+                    <label for="password">密碼*</label>
+                    <input id="password" name="password" type="password" placeholder="* * * * * *" disabled="true">
+                    <img class="personalEye" src="pic/Common/eyeClose.png">
+                </div>
+                <div class="resetPassword">
+                    <a href="#">重設密碼</a>
+
+                </div>
+
+                <div class="comminicate">
+                    <h3>醫護交流群組</h3>
+                    <div class="card">
+                        <img src="pic/personal/icon1.png" alt="">
+                        <h4>個管師交流社團</h4>
+                    </div>
+                    <div class="card">
+                        <img src="pic/personal/icon2.png" alt="">
+                        <h4>個管師交流群組</h4>
+                    </div>
+                    <div class="card">
+                        <img src="pic/personal/icon3.png" alt="">
+                        <h4>會議與與工作坊</h4>
+                    </div>
+                </div>
+                <div class="infoBtnGroup">
+                    <input type="button" class="back" value="取消">
+                    <input class="updateBtn" type="submit" value="更新">
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="footer"></div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">刪除頭像</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    確定刪除嗎 ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-danger modal-delete">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="js/common.js"></script>
+
+</html>
+
+<script>
+
+    let backk = document.querySelector(".infoBtnGroup .back");
+    if (backk) {
+        backk.addEventListener("click", function (e) {
+            window.location.href = "MedicalArea.html"
+        }, false)
+    }
+
+    let id = "";
+    let photoPathP = "";
+    let password = "";
+    $(document).ready(function () {
+
+
+        $.ajax({
+            type: "Post",
+            url: "system/personalInfo.php",
+
+            success: function (response) {
+                console.log(response);
+                // register.style = "display:none";
+                // cover.style = "display:none";
+                // document.querySelector("body").style = "  overflow-y: scroll"
+                // document.querySelector(".openPass").style = "display:block"
+
+                // if (response == 1) {
+                //     document.cookie = `admin = ${data[0].value};max-age=14400`
+                //     window.location.href = "back.php"
+                // }
+                // else {
+                //     alert("帳號或密碼錯誤")
+                // }
+                let response_arr = response.split(',');
+                id = response_arr[0];
+                let firstName = response_arr[1];
+                let lastName = response_arr[2];
+                let email = response_arr[3];
+                password = response_arr[4];
+                let date = response_arr[5];
+                let status = response_arr[6];
+                let title = response_arr[7];
+                photoPathP = response_arr[8];
+
+                //大頭貼
+                let photo = document.querySelector(".info .photoSticker .circle img");
+                photo.src = photoPathP
+                let inputFirstName = document.querySelector(".info .name .firstName input");
+                inputFirstName.setAttribute("value", firstName);
+                let inputLastName = document.querySelector(".info .name .lastName input");
+                inputLastName.setAttribute("value", lastName);
+                let inputEmail = document.querySelector(".info .email input");
+                inputEmail.setAttribute("placeholder", email);
+                let inputPassword = document.querySelector(".info .password input")
+                inputPassword.setAttribute("value", password);
+                console.log(id, firstName, lastName, email, password, date, status, title, photoPathP);
+
+                // if (id) {
+
+                //     // window.location.href = "MedicalArea.html"
+                //     document.cookie = `username=${name}; max-age=7200; path=/`;
+                //     document.cookie = `loginStatus=${status}; max-age=7200; path=/`;
+
+                // }
+                // else {
+                //     alert("Email或密碼錯誤")
+                // }
+
+            },
+            error: function (err) {
+                console.log(err);
+            },
+        });
+
+        //更新
+        // $('.UpdateForm').on("submit", function (e) {
+        //     e.preventDefault()
+        //     var form = $(this);
+
+        //     $.ajax({
+        //         type: "Post",
+        //         url: "system/personalUpdate.php",
+        //         data: form.serialize(),
+        //         success: function (response) {
+        //             console.log(response)
+
+        //         },
+        //         error: function (err) {
+        //             console.log(err);
+        //         },
+        //     });
+
+
+        // })
+
+
+        // 上傳頭貼
+        // alert("s")
+        // $('.UpdateForm').on("submit", function (e) {
+
+        //     var form = $(this);
+        //     $.ajax({
+        //         type: "Post",
+        //         url: "system/personalUpdate.php",
+        //         data: form.serialize(),
+        //         success: function (response) {
+        //             console.log(response);
+        //             // register.style = "display:none";
+        //             // cover.style = "display:none";
+        //             // document.querySelector("body").style = "  overflow-y: scroll"
+        //             // document.querySelector(".openPass").style = "display:block"
+        //             alert("成功")
+        //             // if (response == 1) {
+        //             //     document.cookie = `admin = ${data[0].value};max-age=14400`
+        //             //     window.location.href = "back.php"
+        //             // }
+        //             // else {
+        //             //     alert("帳號或密碼錯誤")
+        //             // }
+        //             let response_arr = response.split(',');
+        //             let id = response_arr[0];
+        //             let name = response_arr[1];
+        //             let email = response_arr[2];
+        //             let date = response_arr[3];
+        //             let status = response_arr[4];
+        //             let title = response_arr[5];
+        //             console.log(id, name, email, date, status, title);
+        //             if (id) {
+
+        //                 // window.location.href = "MedicalArea.html"
+        //                 document.cookie = `username=${name}; max-age=7200; path=/`;
+        //                 document.cookie = `email=${email}; max-age=7200; path=/`;
+        //                 document.cookie = `loginStatus=${status}; max-age=7200; path=/`;
+
+        //             }
+        //             else {
+        //                 alert("Email或密碼錯誤")
+        //             }
+
+        //         },
+        //         error: function (err) {
+        //             console.log(err);
+        //         },
+        //     });
+
+        //     e.preventDefault()
+        // })
+
+        let modalDelete = document.querySelector(".modal-delete");
+        modalDelete.addEventListener("click", function (e) {
+
+            $.ajax({
+                type: "POST",
+                url: "system/personalDelete.php",
+                success: function (response) {
+                    console.log(response);
+                    alert("刪除成功");
+                    window.location.reload();
+                }
+            });
+
+        }, false)
+
+    })
+
+    //刪除檔案
+    // let deleteBtn = document.querySelector(".UpdateForm .delete");
+    // deleteBtn.addEventListener("click", function (e) {
+
+    // }, false)
+
+    //重設密碼
+    let resetPassword = document.querySelector(".resetPassword");
+    if (resetPassword) {
+        resetPassword.addEventListener("click", function (e) {
+            e.preventDefault();
+            resetPassword.children[0].textContent = "取消重設密碼"
+            if (document.querySelector("#password").disabled == false) {
+                document.querySelector("#password").disabled = true
+                resetPassword.children[0].textContent = "重設密碼"
+                document.querySelector("#password").value = password;
+            }
+            else {
+                document.querySelector("#password").disabled = false;
+            }
+
+        }, false)
+    }
+    //打開眼睛
+    let personalEye = document.querySelector(".personalEye")
+
+    let personalEyeStatus = 0;
+    if (personalEye) {
+        personalEye.addEventListener("click", function (e) {
+            if (personalEyeStatus == 0) {
+                personalEyeStatus = 1;
+                document.querySelector("#password").type = "text"
+                this.src = "pic/Common/eyeOpen.png";
+            }
+            else {
+                personalEyeStatus = 0;
+                document.querySelector("#password").type = "password"
+                this.src = "pic/Common/eyeClose.png";
+            }
+        }, false)
+    }
+
+    if (!getCookieByName('username')) {
+        window.location.href = "index.html";
+    }
+
+
+  
+
+</script>

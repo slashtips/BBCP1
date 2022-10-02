@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腸癌治療旅程</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="css/reset.css">
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/medicalArea.css">
+
+    <!-- <link rel="stylesheet" href="css/article.css"> -->
+
+    <link rel="stylesheet" href="">
+
+    <style>
+        .menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: 1.5rem 120px;
+        }
+
+        /* .menu .left {
+            margin-left: 120px;
+        }
+
+        .menu .right {
+            margin-right: 120px;
+        } */
+        @media screen and (max-width: 576px) {
+            .menu {
+                padding: 18px 24px;
+            }
+        }
+    </style>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+    <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
+    <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
+
+
+<body>
+
+    <div class="cookie"></div>
+    <div class="cover"></div>
+
+
+    <div class="menum"></div>
+
+    <div class="menu"></div>
+
+    <div class="loginH"></div>
+    <div class="register"></div>
+    <div class="questionAsk"></div>
+    <div class="questionSelectCard"></div>
+    <div class="commonCard openPass"></div>
+    <div class="commonCard forgetPassword"></div>
+
+    <div class="commonCardSmall registerSmall"></div>
+    <div class="commonCardSmall openPassSmall"></div>
+    <div class="commonCardSmall forgetPasswordSmall"></div>
+    <div class="menu1"></div>
+
+
+
+
+
+    <!-- sm -->
+    <div class="menu1"></div>
+
+    <div class="areaMap">
+        <div class="areaWrap">
+            <img src="pic/MedicalArea/bgM.svg" alt="">
+
+            <div class="icon">
+                <div class="iicon icon1">
+                    <img src="pic/MedicalArea/area1.svg" alt="">
+                    <input type="button" class="iconBtn" value="醫護園地">
+                </div>
+                <div class="iicon icon2">
+                    <img src="pic/MedicalArea/area2.svg" alt="">
+                    <input type="button" class="iconBtn" value="個人主頁">
+                </div>
+                <div class="iicon icon3">
+                    <img src="pic/MedicalArea/area3.svg" alt="">
+                    <input type="button" class="iconBtn" value="會議活動">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bgs">
+        <img src="pic/MedicalArea/bgs.svg" alt="">
+        <div class="areaGroup">
+            <div class="area area1">
+                <img src="pic/MedicalArea/area1.svg" alt="">
+                <input type="button" value="個人主頁">
+            </div>
+            <div class="area area2">
+                <img src="pic/MedicalArea/area2.svg" alt="">
+                <input type="button" value="醫護園地">
+            </div>
+            <div class="area area3">
+                <img src="pic/MedicalArea/area3.svg" alt="">
+                <input type="button" value="會議活動">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="bgSmall">
+        <img src="pic/MedicalArea/bgSm.svg" alt="">
+        <div class="menuBtn"></div>
+        <div class="indexBtn"></div>
+        <div class="topic1Btn"></div>
+        <div class="topic2Btn"></div>
+        <div class="topic3Btn"></div>
+    </div> -->
+    <!-- <div class="menu1"></div> -->
+    <div class="footer"></div>
+</body>
+
+<script src="js/common.js"></script>
+<script>
+    //桌機板
+    let icon1icon = document.querySelector('.icon .icon1 ');
+    let icon2icon = document.querySelector('.icon .icon2 ');
+    let icon3icon = document.querySelector('.icon .icon3 ');
+
+    icon1icon.addEventListener("click", function (e) { window.location = "articleIndexNew.php"; })
+    icon2icon.addEventListener("click", function (e) { window.location = "personal.html"; })
+    icon3icon.addEventListener("click", function (e) { window.location = "meeting.php"; })
+
+    //Btn 橘色修正
+    let icon = document.querySelectorAll(".areaWrap .iicon")
+    icon.forEach(function (element) {
+
+        element.children[0].addEventListener("mouseenter", function (e) {
+            element.children[0].style = "transform: scale(1.1);cursor: pointer;"
+        }, false)
+        element.children[1].addEventListener("mouseenter", function (e) {
+            element.children[0].style = "transform: scale(1.1);cursor: pointer;"
+        }, false)
+
+        element.children[0].addEventListener("mouseleave", function (e) {
+            element.children[0].style = "transform: scale(1);"
+        }, false)
+        element.children[1].addEventListener("mouseleave", function (e) {
+            element.children[0].style = "transform: scale(1);"
+        }, false)
+    })
+
+    //手機
+    let area1 = document.querySelector(".bgs .area1");
+    let area2 = document.querySelector(".bgs .area2");
+    let area3 = document.querySelector(".bgs .area3");
+
+    area1.addEventListener("click", function (e) { window.location = "personal.html"; })
+    area2.addEventListener("click", function (e) { window.location = "articleIndexNew.php"; })
+    area3.addEventListener("click", function (e) { window.location = "meeting.php"; })
+
+    //手機板
+    // let menuBtn = document.querySelector('.menuBtn');
+    // let indexBtn = document.querySelector('.indexBtn');
+    // let topic1Btn = document.querySelector('.topic1Btn');
+    // let topic2Btn = document.querySelector('.topic2Btn');
+    // let topic3Btn = document.querySelector('.topic3Btn');
+
+    // menuBtn.addEventListener("click", function (e) {
+    //     document.querySelector('.menu1').style = "display:block";
+    //     document.querySelector("body").style = "  overflow-y: hidden"
+    // })
+    // indexBtn.addEventListener('click', function (e) {
+    //     window.location = "index.html";
+    // }, false)
+    // topic1Btn.addEventListener('click', function (e) {
+    //     window.location = "personal.html";
+    // })
+    // topic2Btn.addEventListener('click', function (e) {
+    //     alert("尚未開放")
+    // })
+    // topic3Btn.addEventListener('click', function (e) {
+    //     window.location = "news.html";
+    // })
+
+    if (!getCookieByName('username')) {
+        window.location.href = "index.html";
+    }
+</script>
+
+</html>

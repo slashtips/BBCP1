@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title><?php echo $topicSec ?> </title> -->
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/article.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        .wrap {
+            max-width: 1200px;
+        }
+
+        .top {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .top .option {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h1 {
+            display: block;
+            width: 100%;
+        }
+
+        .option input {
+            background: #F0EBE3;
+            border-radius: 40px;
+        }
+
+        .inputTextGroup {
+            position: relative;
+        }
+
+        .inputTextGroup input {
+            width: 368px;
+            height: 54px;
+            background: #F0EBE3;
+            border-radius: 40px;
+            padding-left: 15%;
+            border: none;
+        }
+
+        .inputTextGroup img {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+
+
+
+
+        .articleGroup {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 60px;
+        }
+
+        .articleGroup h1 {
+            width: 100%;
+            font-weight: 500;
+            font-size: 80px;
+            line-height: 94px;
+            letter-spacing: 0.04em;
+            color: #424452;
+        }
+
+        .articleGroup .group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+
+        .articleGroup a {
+            text-decoration: none;
+        }
+
+        .articleGroup .article {
+            display: flex;
+            cursor: pointer;
+            width: 48%;
+            margin-top: 40px;
+            background: #FFFFFF;
+            border: 1px solid #ECECEC;
+            border-radius: 8px;
+            max-height: 523px;
+            overflow: hidden;
+
+        }
+
+        .articleGroup .article .left img {
+            height: 100%;
+
+        }
+
+
+        .articleGroup .article .right {
+            padding: 2rem;
+            width: 80%;
+        }
+
+        .articleGroup .article .right .tag {
+            background: #FFFFFF;
+            border: 0.5px solid #424452;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #333541;
+            max-width: 112px;
+            white-space: nowrap;
+            padding: 3px 0;
+        }
+
+        .articleGroup .article .right h3 {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: 0.01em;
+            color: #424452;
+            margin-top: 1rem;
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .articleGroup .article .right p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 36px;
+            letter-spacing: 0.01em;
+            color: #898B91;
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+            margin-top: 1rem;
+        }
+
+
+        .RWDTop {
+            display: none;
+        }
+
+        @media screen and (max-width:576px) {
+            .RWDTop {
+                display: flex;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .top .option a {
+                display: none;
+            }
+
+            .RWDTop {
+
+                max-width: 327px;
+                margin: 0 auto;
+                display: block;
+                padding-top: 20px;
+                position: relative;
+            }
+
+            .RWDTop h3 {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                text-align: center;
+                letter-spacing: 0.04em;
+                color: #FFFFFF;
+                position: absolute;
+                left: 50%;
+                top: 72.5%;
+                transform: translate(-50%, -50%);
+            }
+
+            .top {
+                margin-top: 20px;
+            }
+
+            .top .inputTextGroup {
+                text-align: center;
+
+                margin: 0 auto;
+            }
+
+            .top .option input {
+                max-width: 327px;
+                height: 54px;
+                background: #F0EBE3;
+                border-radius: 40px;
+                margin: 0 auto;
+
+            }
+
+            .articleGroup h1 {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 40px;
+                letter-spacing: 0.04em;
+                color: #424452;
+            }
+
+            .articleGroup .group {
+                max-width: 327px;
+                margin: 0 auto;
+                flex-wrap: wrap;
+
+            }
+
+            .articleGroup .group .article {
+                width: 100%;
+                min-height: 350px;
+                overflow: hidden;
+            }
+
+            .article a {
+                flex-direction: row;
+                width: 100%;
+
+            }
+
+            .articleGroup .group img {
+                width: 100%;
+                height: 150px !important;
+            }
+
+            .article .right {
+                overflow: hidden;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                /*行數*/
+                -webkit-box-orient: vertical;
+                white-space: normal;
+            }
+        }
+    </style>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+        integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+    <div class="cookie"></div>
+    <div class="cover"></div>
+
+
+    <div class="menum"></div>
+    <div class="menu"></div>
+    <div class="loginH"></div>
+    <div class="register"></div>
+    <div class="questionAsk"></div>
+    <div class="commonCard openPass"></div>
+    <div class="commonCard forgetPassword"></div>
+
+    <div class="commonCardSmall registerSmall"></div>
+    <div class="commonCardSmall openPassSmall"></div>
+    <div class="commonCardSmall forgetPasswordSmall"></div>
+    <div class="menu1"></div>
+
+    <div class="RWDTop">
+        <img src="pic/Common/backS.svg" alt="">
+        <h3>腸癌新知</h3>
+    </div>
+
+    <div class="top">
+        <div class="option">
+            <a href="ArticleIndex.php"><img src="pic/Common/back.svg" alt=""></a>
+            <div class="inputTextGroup">
+                <img src="pic/Common/search.svg" alt="">
+                <input type="text" placeholder="請輸入關鍵字">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="articleGroup">
+        <h1>最新消息</h1>
+        <div class="group">
+
+            <div class="article">
+                <a href="store/articleRelease/article' . $article[''] . '.php">
+                    <div class="left">
+                        <img src="pic/Common/Cardimg.png" alt="">
+                    </div>
+                    <div class="right">
+                        <div class="tag">' . $article['topicSec'] . '</div>
+                        <h3>' . $article['title'] . '</h3>
+                        <p>' . $article['content'] . '</p>
+                    </div>
+                </a>
+            </div>
+            <div class="article">
+                <a href="store/articleRelease/article' . $article[''] . '.php">
+                    <div class="left">
+                        <img src="pic/Common/Cardimg.png" alt="">
+                    </div>
+                    <div class="right">
+                        <div class="tag">' . $article['topicSec'] . '</div>
+                        <h3>' . $article['title'] . '</h3>
+                        <p>
+                        <h3>asdaasdasd1asd3132</h3>
+                        <h2>asdadasasdasdasdasdasasdasdasdasdasdasdadsasdasdasdssadsadsasadasad</h2> ' .
+                        $article['conasddddddddddddddddddddddddddddddddddddddddddddddddddddddddtent'] . '</p>
+                    </div>
+                </a>
+            </div>
+            <div class="article">
+                <a href="store/articleRelease/article' . $article[''] . '.php">
+                    <div class="left">
+                        <img src="pic/Common/Cardimg.png" alt="">
+                    </div>
+                    <div class="right">
+                        <div class="tag">' . $article['topicSec'] . '</div>
+                        <h3>' . $article['title'] . '</h3>
+                        <p>' . $article['content'] . '</p>
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="pagination">
+            <div class="numberGroup"></div>
+            <div class="next">
+                <img src="pic/Common/next.svg" alt="">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer"></div>
+
+
+
+
+</body>
+
+
+<script src="js/common.js"></script>
+<script src="js/article.js"></script>
+
+<script>
+    let group = document.querySelector(".articleGroup .group")
+    let article = document.querySelectorAll(".articleGroup .article");
+    let paginationNum = Math.ceil(article.length / 10);
+    let paginationNumStr = "";
+    let numberGroup = document.querySelector(".numberGroup");
+    //製造分頁
+    for (let i = 1; i <= paginationNum; i++) {
+        paginationNumStr += `<div class="number">
+    <h5>${i}</h5>
+    </div>`
+    }
+    numberGroup.innerHTML = paginationNumStr;
+
+    //新增article上去
+    let numberBtn = document.querySelectorAll(".numberGroup .number")
+
+    numberBtn.forEach(function (element, index) {
+        //分頁Active
+        element.addEventListener("click", function (e) {
+            e.preventDefault();
+            numberBtn.forEach(function (element) {
+                element.classList.remove("numberActive")
+            });
+            element.classList.add("numberActive")
+
+            let ArticleStr = "";
+            for (let i = index; i < index + 10; i++) {
+                let n = i + index * 9
+                if (article[n]) {
+                    ArticleStr += `${article[n].outerHTML}`
+                }
+            }
+            group.innerHTML = ArticleStr
+
+            //js控制問答消失
+            // q.forEach(function(element) {
+            //     element.style = "display:none"
+            // })
+            //新增問答上去
+
+
+        }, false)
+    })
+
+    numberBtn[0].click();
+
+      let backSImg = document.querySelector(".RWDTop img")
+        if (backSImg) {
+            backSImg.addEventListener("click", function (e) {
+                window.location.href = "ArticleIndex.php";
+            }, false)
+        }
+</script>
+
+
+
+
+</html>
