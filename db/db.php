@@ -2,9 +2,9 @@
 ob_start();
 
 $db_server = "localhost";
-$db_name = "zfcloudadmin_kaiBBC";
-$db_user = "zfcloudadmin_root";
-$db_passwd = "m4h5KHgKFUx4";
+$db_name = "BBC";
+$db_user = "root";
+$db_passwd = "rochebbc2022";
 
 
 
