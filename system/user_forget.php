@@ -8,8 +8,7 @@ $email = $_POST["email"];
 
 $sql = "SELECT * FROM `users` WHERE `users`.`email` = '$email'";
 $res = mysqli_query($connect, $sql);
-foreach($res as $user)
-{
+foreach ($res as $user) {
     $firstName = $user["firstName"];
     $lastName = $user["lastName"];
 }
@@ -54,7 +53,7 @@ try {
     $mail->CharSet = "UTF-8";                     //设定邮件编码
     $mail->SMTPDebug = 0;                        // 调试模式输出
     $mail->isSMTP();                             // 使用SMTP
-    $mail->Host = 'smtp.google.com';                // SMTP服务器
+    $mail->Host = 'smtp.gmail.com';                // SMTP服务器
     $mail->SMTPAuth = true;                      // 允许 SMTP 认证
     $mail->Username = 'service@zfcloud.cc';                // SMTP 用户名  即邮箱的用户名
     $mail->Password = 'Zf69678786web';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
@@ -73,7 +72,7 @@ try {
     //发送附件
     // $mail->addAttachment('../xy.zip');         // 添加附件
     // $mail->addAttachment('../thumb-1.jpg', 'new.jpg');    // 发送附件并且重命名
-
+    $local =  $_SERVER['HTTP_HOST'];
     //Content
     $mail->isHTML(true);                                  // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
     $mail->Subject = "【更換密碼】";
@@ -81,7 +80,7 @@ try {
         <h1>親愛的「 $firstName  $lastName 」您好</h1>
         <p>您的驗證碼為<span>$random</span></p>
         
-        <h3>請點擊<a href='zfcloud.cc/demo/KaiBBCWebsite/system/user_forgetVertify.php?email=$email&code=$randomCode'>連結</a>驗證：）<br>
+        <h3>請點擊<a href='$local/system/user_forgetVertify.php?email=$email&code=$randomCode'>連結</a>驗證：）<br>
     </h3>
     " . "<br>" . $date . "本信由系統發送";
     $mail->Body    = "$body";

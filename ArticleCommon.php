@@ -12,6 +12,10 @@ $resR = mysqli_query($connect, $sqlR);
 $sqlC = "SELECT * FROM `article` WHERE `id` <> $id  AND `publish` = 1 ORDER BY id DESC LIMIT 0 , 5 ";
 $resC = mysqli_query($connect, $sqlC);
 
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,13 +136,13 @@ $resC = mysqli_query($connect, $sqlC);
             letter-spacing: 0.01em;
         }
 
-       
+
 
         .relatedArticles .card .cardText {
             padding: 1rem;
         }
 
-        .relatedArticles .relatedImg{
+        .relatedArticles .relatedImg {
             width: 100%;
             height: 140px;
         }
@@ -217,6 +221,27 @@ $resC = mysqli_query($connect, $sqlC);
             width: 100%;
             height: 100%;
         }
+
+        @media screen and (max-width: 960px) {
+            .article .topic .text h1 {
+                font-size: 40px;
+                line-height: 1.3;
+            }
+
+            .article .content {
+                margin-top: 60px;
+            }
+        }
+
+        @media screen and (max-width: 568px) {
+            .article .topic .text h1 {
+                font-size: 30px;
+                line-height: 1.2;
+                margin-top: 30px;
+            }
+        }
+
+        
     </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -238,6 +263,17 @@ $resC = mysqli_query($connect, $sqlC);
         }(document, 'script', 'facebook-jssdk'));
     </script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+    </script>
+
 
     <div class="cookie"></div>
     <div class="cover"></div>
@@ -252,6 +288,7 @@ $resC = mysqli_query($connect, $sqlC);
     <div class="questionAsk"></div>
     <div class="questionSelectCard"></div>
 
+    <div class="OutHref"></div>
 
     <div class="RWDTop">
         <img src="pic/Common/backS.svg" alt="">
@@ -288,7 +325,7 @@ $resC = mysqli_query($connect, $sqlC);
 
                 <div class="back2">
                     <img src="pic/Common/back.svg" alt="">
-                    <small>資料來源 : <?php echo $row['source']; ?></small>
+                    <small><?php echo $row['source']; ?></small>
                 </div>
                 <div class="hr"></div>
             </div>
@@ -296,12 +333,11 @@ $resC = mysqli_query($connect, $sqlC);
             <?php
             if ($row['video'] != "") {
                 echo '
-            <div class="video">
-                <iframe class="articleVideo" src="' . $row['video'] . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            ';
+                    <div class="video">
+                        <iframe class="articleVideo" src="' . $row['video'] . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    ';
             }
-
             ?>
 
 

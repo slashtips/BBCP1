@@ -7,6 +7,10 @@ $sqlQR  = "SELECT * FROM `QA` Where `publish` = 1 ORDER BY id DESC ";
 
 $resQR = mysqli_query($connect, $sqlQR);
 
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
+
 ?>
 
 <!DOCTYPE html>
@@ -147,15 +151,26 @@ $resQR = mysqli_query($connect, $sqlQR);
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
-<script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
+    <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+    </script>
     <div class="cookie"></div>
     <div class="cover"></div>
 
 
+    <div class="OutHref"></div>
     <div class="menum"></div>
     <div class="menu"></div>
     <div class="loginH"></div>
@@ -165,8 +180,10 @@ $resQR = mysqli_query($connect, $sqlQR);
     <div class="commonCard openPass"></div>
     <div class="commonCard forgetPassword"></div>
 
+    <div class="commonCardSmall loginSmall"></div>
     <div class="commonCardSmall registerSmall"></div>
     <div class="commonCardSmall openPassSmall"></div>
+    <div class="commonCardSmall registerCompletedSmall"></div>
     <div class="commonCardSmall forgetPasswordSmall"></div>
     <div class="menu1"></div>
 
@@ -407,9 +424,9 @@ $resQR = mysqli_query($connect, $sqlQR);
     })
     //問答區跳轉
     var getUrlString = location.href;
-    var url = new URL(getUrlString);
+    var uurl = new URL(getUrlString);
 
-    if (url.searchParams.get('question')) {
+    if (uurl.searchParams.get('question')) {
 
         $('html,body').animate({
             scrollTop: $("#commonQuestionTitle").offset().top
@@ -992,6 +1009,8 @@ $resQR = mysqli_query($connect, $sqlQR);
 
 
     // }, false)
+
+    
 </script>
 
 </html>

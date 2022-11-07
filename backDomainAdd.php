@@ -74,6 +74,6 @@ $row = mysqli_fetch_array($res);
 	}
 
 	if (getCookieByName('title') != "管理者") {
-		window.location.href = "index.html";
+		window.location.href = "index.php";
 	}
 </script>

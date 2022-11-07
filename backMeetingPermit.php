@@ -100,17 +100,16 @@ $res = mysqli_query($connect, $sql);
                     <th scope="col">創建時間</th>
                     <th scope="col">操作</th>
                 </tr>
-
             </thead>
             <tbody>
                 <?php
-                foreach ($res as $article) {
+                foreach ($res as $meeting) {
                     echo "<tr>";
-                    echo "<td>" . $article['title'] . "</td>";
-                    echo "<td>" . $article['createTime'] . "</td>";
+                    echo "<td>" . $meeting['title'] . "</td>";
+                    echo "<td>" . $meeting['createTime'] . "</td>";
                     echo "<td>" .
-                        "<a href='meetingCommon.php?i=$article[id]' target='_blank'  class='btn btn-outline-primary me-2'>預覽</a>" .
-                        "<a href='meetingCommonPermit.php?i=$article[id]'  class='btn btn-outline-success me-2 meetingPermitBtn'>批准</a>" .
+                        "<a href='meetingCommon.php?i=$meeting[id]' target='_blank'  class='btn btn-outline-primary me-2'>預覽</a>" .
+                        "<a href='system/backMeetingPermit.php?i=$meeting[id]'  class='btn btn-outline-success me-2 meetingPermitBtn'>批准</a>" .
                         "</td>";
                     echo "</tr>";
                 }
@@ -176,6 +175,6 @@ $res = mysqli_query($connect, $sql);
     }
 
     if (getCookieByName('title') != "管理者") {
-        window.location.href = "index.html";
+        window.location.href = "index.php";
     }
 </script>

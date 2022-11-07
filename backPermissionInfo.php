@@ -237,6 +237,6 @@ $res3 = mysqli_query($connect, $sql3);
     }
 
     if (getCookieByName('title') != "管理者") {
-        window.location.href = "index.html";
+        window.location.href = "index.php";
     }
 </script>

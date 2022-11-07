@@ -52,7 +52,7 @@ try {
     $mail->CharSet = "UTF-8";                     //设定邮件编码
     $mail->SMTPDebug = 0;                        // 调试模式输出
     $mail->isSMTP();                             // 使用SMTP
-    $mail->Host = 'smtp.google.com';                // SMTP服务器
+    $mail->Host = 'smtp.gmail.com';                // SMTP服务器              // SMTP服务器
     $mail->SMTPAuth = true;                      // 允许 SMTP 认证
     $mail->Username = 'service@zfcloud.cc';                // SMTP 用户名  即邮箱的用户名
     $mail->Password = 'Zf69678786web';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
@@ -73,13 +73,14 @@ try {
     // $mail->addAttachment('../thumb-1.jpg', 'new.jpg');    // 发送附件并且重命名
 
     //Content
+    $local =  $_SERVER['HTTP_HOST'];
     $mail->isHTML(true);                                  // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
     $mail->Subject = "【信箱確認信】";
     $body = "
         <h1>親愛的「 $firstName  $lastName 」您好</h1>
         <p>我們已將帳號開通連結傳至您的信箱，請查收信件並點擊該連結，即可開通帳號完成註冊流程。</p>
 
-        <h3>請點擊<a href='zfcloud.cc/demo/KaiBBCWebsite/system/check.php?email=$email'>此連結</a>確認：）<br>
+        <h3>請點擊<a href='$local/system/check.php?email=$email'>此連結</a>確認：）<br>
     </h3>
     " . "<br>" . $date . "本信由報名系統發送";
     $mail->Body    = "$body";
@@ -152,7 +153,7 @@ try {
         <br>
         <p></p>
         <div class="btn-gruop me-4">
-            <input class="btn " style="background-color:#bf001f;color:#fff" type="button" value="回到首頁" onclick="self.location.href='../index.html'" />
+            <input class="btn " style="background-color:#bf001f;color:#fff" type="button" value="回到首頁" onclick="self.location.href='../index.php'" />
         </div>
     </div>
 </body>

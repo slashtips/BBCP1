@@ -26,8 +26,6 @@ $row = mysqli_fetch_array($res);
 	<div class="container text-center">
 		<h1>新增腸癌文章</h1>
 		<form action="system/backArticleAddStore.php" method="post" enctype="multipart/form-data">
-
-
 			<div class="mb-3">
 				<div class="row">
 					<div class="col-12 topicSec">
@@ -41,19 +39,9 @@ $row = mysqli_fetch_array($res);
 							<option value="營養健康">營養健康</option>
 						</select>
 					</div>
-					<!-- <div class="col-6">
-						<label for="type" class="form-label">類別</label>
-						<select class="form-select" name="type" aria-label="Default select example">
-							<option value="類別1">類別1</option>
-							<option value="類別2">類別2</option>
-							<option value="類別3">類別3</option>
-							<option value="類別4">類別4</option>
-							<option value="類別5">類別5</option>
-						</select>
-					</div> -->
 				</div>
-
 			</div>
+
 			<div class="mb-3">
 				<label for="title" class="form-label">文章標題</label>
 				<input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" value="">
@@ -162,6 +150,6 @@ $row = mysqli_fetch_array($res);
 	}
 
 	if (getCookieByName('title') != "管理者" && getCookieByName('title') != "編輯者") {
-		window.location.href = "index.html";
+		window.location.href = "index.php";
 	}
 </script>

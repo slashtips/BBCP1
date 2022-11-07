@@ -176,6 +176,6 @@ $res = mysqli_query($connect, $sql);
     }
 
     if (getCookieByName('title') != "管理者") {
-        window.location.href = "index.html";
+        window.location.href = "index.php";
     }
 </script>

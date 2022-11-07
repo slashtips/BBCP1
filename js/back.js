@@ -7,10 +7,9 @@ let backMenuStr = `
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="btn btn-outline-primary btn-sm mt-2" href="index.html" target="_blank" role="button">前台</a>
+                <a class="btn btn-outline-primary btn-sm mt-2" href="index.php" target="_blank" role="button">前台</a>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
 
-                    
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <!--<div class="user">
                             <img class="bg-black" src="pic/Common/userNone.png" alt="">

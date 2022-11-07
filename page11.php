@@ -2,6 +2,9 @@
 include 'db/db.php';
 $sqlR = "SELECT * FROM `article` WHERE `topicSec` = '副作用' AND `publish` = 1 ORDER BY id DESC LIMIT 0 , 3 ";
 $resR = mysqli_query($connect, $sqlR);
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,10 +36,21 @@ $resR = mysqli_query($connect, $sqlR);
 
 <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
 <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+</script>
 <body>
     <div class="cookie"></div>
     <div class="cover"></div>
-
+    <div class="OutHref"></div>
 
     <div class="menum"></div>
     <div class="menu"></div>

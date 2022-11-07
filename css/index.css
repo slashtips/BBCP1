@@ -21,6 +21,10 @@ img {
   display: none;
 }
 
+.bg {
+  display: block;
+}
+
 .filter {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(20px);
@@ -945,7 +949,7 @@ img {
     display: none;
   }
   .topicLL .topicLL1 .topicLSec .row {
-    height: 60%;
+    height: 30%;
   }
   .topicLL .topicLL1 .topicLSec .row a {
     height: 100%;

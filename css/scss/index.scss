@@ -22,6 +22,9 @@ img {
     display: none;
 }
 
+.bg {
+    display: block;
+}
 // .loginH {
 
 //     display: none;
@@ -1480,6 +1483,8 @@ img {
             background-size: cover;
             position: relative;
 
+            
+            
             .topicc {
                 position: absolute;
                 top: 0;
@@ -1681,7 +1686,7 @@ img {
             display: none;
             .topicLSec {
                 .row {
-                    height: 60%;
+                    height: 30%;
                     a {
                         height: 100%;
                     }

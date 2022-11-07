@@ -385,7 +385,7 @@ $pass = 0;
 
     let setNewPasswordCompletedBtn = document.querySelector(".setNewPasswordCompleted .inputGroup input");
     setNewPasswordCompletedBtn.addEventListener("click", function(e) {
-        window.location.href = "../MedicalArea.html";
+        window.location.href = "../index.php";
     }, false)
 
     //手機板
@@ -468,7 +468,7 @@ $pass = 0;
         }, false)
         if (setNewPasswordCompletedSmallBtn) {
             setNewPasswordCompletedSmallBtn.addEventListener("click", function(e) {
-                window.location.href = "../MedicalArea.html";
+                window.location.href = "../index.php";
             })
         }
 

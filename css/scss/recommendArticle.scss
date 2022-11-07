@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 .wrap {
     max-width: 1200px;
 }
@@ -12,7 +11,6 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .top .option {
@@ -27,7 +25,7 @@ h1 {
 }
 
 .option input {
-    background: #F0EBE3;
+    background: #f0ebe3;
     border-radius: 40px;
 }
 
@@ -38,13 +36,12 @@ h1 {
 .inputTextGroup input {
     width: 368px;
     height: 54px;
-    background: #F0EBE3;
+    background: #f0ebe3;
     border-radius: 40px;
     padding-left: 15%;
     border: none;
     font-size: 20px;
 }
-
 
 .inputTextGroup img {
     position: absolute;
@@ -64,9 +61,6 @@ h1 {
     width: 100%;
 }
 
-
-
-
 .topicSecGroup {
     a {
         text-decoration: none;
@@ -77,7 +71,6 @@ h1 {
 
     .topicSec {
         width: 100%;
-
     }
 
     justify-content: space-between;
@@ -87,11 +80,11 @@ h1 {
         width: 100%;
         height: 158px;
         padding: 12.5%;
-        background: #FFFFFF;
-        border: 1px solid #DFDFDF;
+        background: #ffffff;
+        border: 1px solid #dfdfdf;
         border-radius: 20px;
         box-shadow: 0px 2px 4px rgba(29, 31, 40, 0.04), 0px 8px 16px rgba(66, 68, 82, 0.16);
-        transition: .15s;
+        transition: 0.15s;
         position: relative;
 
         img {
@@ -115,29 +108,17 @@ h1 {
     }
 }
 
-
-
-
-
-
 .topicSecActive {
     background: #424452 !important;
     color: #fff !important;
 }
 
-
-
-
-
-
-
-
-
 .articleGroup {
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 60px;
-
+    overflow: hidden;
+    
     .titleH1 {
         width: 100%;
         font-weight: 500;
@@ -146,6 +127,7 @@ h1 {
         letter-spacing: 0.04em;
         color: #424452;
         padding-bottom: 60px;
+        
     }
 
     .group {
@@ -157,7 +139,8 @@ h1 {
     .article {
         width: 30%;
         cursor: pointer;
-
+        background-color: #fff;
+        overflow: hidden;
         .errorImg {
             height: 240px;
         }
@@ -167,7 +150,7 @@ h1 {
         padding: 1rem;
 
         .tag {
-            background: #FFFFFF;
+            background: #ffffff;
             border: 0.5px solid #424452;
             border-radius: 8px;
             font-weight: 600;
@@ -196,7 +179,7 @@ h1 {
             font-size: 18px;
             line-height: 36px;
             letter-spacing: 0.01em;
-            color: #898B91;
+            color: #898b91;
             padding-top: 1rem;
             overflow: hidden;
             display: -webkit-box;
@@ -325,12 +308,9 @@ h1 {
 
 // }
 
-
-
 .RWDTop {
     display: none;
 }
-
 
 .searchBox {
     position: absolute;
@@ -346,8 +326,6 @@ h1 {
     display: none;
 
     ul {
-
-
         h3 {
             font-size: 1.5rem;
             color: #424452;
@@ -357,39 +335,66 @@ h1 {
         li {
             margin-top: 0.75rem;
             background-color: #efefef;
-            box-shadow: 0 0 5px rgba($color: #ddd, $alpha: .2);
+            box-shadow: 0 0 5px rgba($color: #ddd, $alpha: 0.2);
             border-radius: 8px;
             padding: 0.75rem;
             &:hover {
-                color: #F26681;
+                color: #f26681;
                 background-color: #ddd;
-                box-shadow: 0 0 5px rgba($color: #ddd, $alpha: .5);
+                box-shadow: 0 0 5px rgba($color: #ddd, $alpha: 0.5);
             }
 
             a {
                 text-decoration: none;
-                font-family: 'Roboto';
+                font-family: "Roboto";
                 font-style: normal;
                 font-weight: 500;
                 color: #424452;
                 margin: 0;
                 padding: 0;
                 font-size: 1rem;
-                padding: .5rem 0 .5rem 1rem;
+                padding: 0.5rem 0 0.5rem 1rem;
 
                 &:hover {
-                    color: #F26681;
-                    
+                    color: #f26681;
                 }
             }
         }
     }
+}
+
+@media screen and (max-width: 1200px) {
+    .top{
+        max-width: 90%;
+    }
+    .articleGroup {
+        max-width: 90%;
+        margin: 0 auto;
+        // padding: 0;
+        // padding-top: 60px;
+
+        .titleH1 {
+            font-weight: 600;
+            font-size: 40px;
+            letter-spacing: 0.04em;
+        }
+
+        .group {
+        
+            .article {
+                overflow: hidden;
+                width: 27%;
+            }
+        }
+    }
+    .topicSecGroup{
+        max-width: 90%;
+    }
+
 
 }
 
-
-@media screen and (max-width:576px) {
-
+@media screen and (max-width: 576px) {
     .menu {
         display: none;
     }
@@ -411,13 +416,13 @@ h1 {
     }
 
     .RWDTop h3 {
-        font-family: 'Roboto';
+        font-family: "Roboto";
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
         text-align: center;
         letter-spacing: 0.04em;
-        color: #FFFFFF;
+        color: #ffffff;
         position: absolute;
         left: 50%;
         top: 72.5%;
@@ -437,10 +442,9 @@ h1 {
     .top .option input {
         max-width: 327px;
         height: 54px;
-        background: #F0EBE3;
+        background: #f0ebe3;
         border-radius: 40px;
         margin: 0 auto;
-
     }
 
     .topicSecGroup {
@@ -452,8 +456,6 @@ h1 {
 
         .topicSec {
             width: 45%;
-
-
 
             .card {
                 display: flex;
@@ -476,7 +478,6 @@ h1 {
                     width: 23%;
                 }
             }
-
         }
 
         .RWDFull {
@@ -504,16 +505,6 @@ h1 {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
     .articleGroup {
         max-width: 327px;
         margin: 0 auto;
@@ -536,9 +527,6 @@ h1 {
         }
     }
 
-
-
-
     .searchBox {
         z-index: 10000;
         width: 100%;
@@ -546,13 +534,12 @@ h1 {
         top: 100%;
 
         ul {
-
             li {
                 margin-top: 0.75rem;
 
                 a {
                     text-decoration: none;
-                    font-family: 'Roboto';
+                    font-family: "Roboto";
                     font-style: normal;
                     font-weight: 400;
                     color: #424452;
@@ -577,14 +564,11 @@ h1 {
                     }
 
                     &:hover {
-                        color: #F26681;
+                        color: #f26681;
                         font-weight: 500;
                     }
                 }
-
             }
-
         }
     }
-
 }

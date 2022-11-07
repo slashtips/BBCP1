@@ -248,7 +248,7 @@ if (catelogCard) {
 let backImg = document.querySelector(".content .back img");
 if (backImg) {
     backImg.addEventListener("click", function (e) {
-        window.location.href = "./index.html";
+        window.location.href = "./index.php";
     }, false)
 
 }
@@ -258,7 +258,6 @@ if (back2Img) {
     back2Img.addEventListener("click", function (e) {
         window.location.href = "ArticleIndex.php";
     }, false)
-
 }
 
 
@@ -266,7 +265,7 @@ if (back2Img) {
 let menuArticleSmallHomeBtn = document.querySelector(".menuArticleSmall .homeS")
 if (menuArticleSmallHomeBtn) {
     menuArticleSmallHomeBtn.addEventListener("click", function (e) {
-        window.location.href = "index.html"
+        window.location.href = "index.php"
     }, fans)
 }
 
@@ -398,9 +397,16 @@ if (catelogTitle) {
 let RWDTopBack = document.querySelector(".RWDTop img");
 if (RWDTopBack) {
     RWDTopBack.addEventListener("click", function (e) {
-        window.location.href = "index.html"
+        window.location.href = "index.php"
     }, false)
 }
+
+// let RWDTopBack2 = document.querySelector(".RWDTop2 img");
+// if (RWDTopBack2) {
+//     RWDTopBack2.addEventListener("click", function (e) {
+//         window.location.href = "MedicalArea.php"
+//     }, false)
+// }
 
 
 //腸癌文章區

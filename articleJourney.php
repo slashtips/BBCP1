@@ -19,6 +19,9 @@ $sqlN = "SELECT * FROM `article0` WHERE `id` = $id + 1 ";
 $resN = mysqli_query($connect, $sqlN);
 $rowN = mysqli_fetch_array($resN);
 
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
 
 ?>
 
@@ -47,7 +50,7 @@ $rowN = mysqli_fetch_array($resN);
     <meta property="og:description" content="Your description" />
     <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
 
-    <script></script>
+
     <style>
         .paragraph ul a {
             text-decoration: none;
@@ -58,7 +61,6 @@ $rowN = mysqli_fetch_array($resN);
             color: #999;
         }
 
-        .content p {}
     </style>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -67,6 +69,17 @@ $rowN = mysqli_fetch_array($resN);
 
 <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
 <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+</script>
 
 <body>
 

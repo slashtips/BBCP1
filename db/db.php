@@ -1,10 +1,10 @@
 <?PHP
 ob_start();
 
-$db_server = "localhost";
-$db_name = "BBC";
+$db_server = "bbc-db-1.cftxt2nbwtqk.ap-northeast-1.rds.amazonaws.com";
+$db_name = "zfcloudadmin_kaiBBC";
 $db_user = "root";
-$db_passwd = "rochebbc2022";
+$db_passwd = "zf888888";
 
 
 

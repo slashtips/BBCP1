@@ -152,7 +152,7 @@ let menuLeft =
             <div class="roche">
                 <img src="pic/Common/roche.svg" alt="">
             </div>
-            <div class="logo"><a href="index.html">腸癌治療旅程</a> </div>
+            <div class="logo"><a href="index.php">腸癌易點通</a> </div>
         </div>
 `;
 
@@ -171,8 +171,8 @@ let menuRight =
                 </div>
                 <ul>
                     <h6 class="title"></h6>
-                    <li><a href="personal.html">個人主頁</a></li>
-                    <li class="hide" ><a href="MedicalArea.html">醫護專區</a></li>
+                    <li><a href="personal.php">個人主頁</a></li>
+                    <li class="hide" ><a href="MedicalArea.php">醫護專區</a></li>
                     <li class="hide" ><a href="back.html" target="_blank">後台管理</a></li>
                 </ul>
 
@@ -213,20 +213,23 @@ let menumStr = `
                 <div class="login">
                     <h3 class="RWDHide">醫護人員選單</h3>
                     <div class="hr hrs"></div>
-
                     <ul class="RWDHide">
-                        <li><a href="articleIndexNew.php">醫護園地</a><img src="pic/index/right.png" alt=""></li>
-                        <li><a href="work.html">會議與工作坊</a><img src="pic/index/right.png" alt=""></li>
+                        <li><a href="recommendMeeting0.php">醫護園地</a><img src="pic/index/right.png" alt=""></li>
+                        <li><a href="meeting.php">會議活動</a><img src="pic/index/right.png" alt=""></li>
                     </ul>
                 </div>
+
             </div>
 
             <div class="hrb"></div>
 
             <div class="line">
                 <div class="left">
-                <img src="pic/Common/QRcode.png" alt="">
-                    <p>你加入 icare 官方 line 了嗎？<br> 現在趕快掃描加入吧！</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform">
+                <img src="pic/Common/QRcode.svg" alt="">
+                </a>
+                    <p>還有甚麼想了解的資訊嗎？<br>
+                    來這裡選擇您想知道的主題吧！</p>
                 </div>
                 <div class="inputGroup" >
                     <input class="loginInBtn" type="button" value="登入">
@@ -234,7 +237,9 @@ let menumStr = `
                 </div>
             </div>
 
+            
             <img class="closeBtn" src="pic/index/cancel.svg" alt="">
+            
         </div> `
 
 //        
@@ -306,14 +311,14 @@ let menu1Str = `
                 <h3>醫護選單</h3>
                 <div class="hr hrs"></div>
                 <h2>個管師專區</h2>
-                <ul class="RWDHide">
-                    <li><a href="articleIndexNew.php">醫護園地</a><img src="pic/index/right.png" alt=""></li>
-                    <li><a href="work.html">會議與工作坊</a><img src="pic/index/right.png" alt=""></li>
+                <ul >
+                    <li><a href="recommendMeeting0.php">醫護園地</a><img src="pic/index/right.png" alt=""></li>
+                    <li><a href="meeting.php">會議活動</a><img src="pic/index/right.png" alt=""></li>
                 </ul>
             </div>
             
             <div class="line">
-                <img src="pic/Common/QRcode.png" alt="">
+                <img src="pic/Common/QRcode.svg" alt="">
             </div>
             <div class="inputGroup">
                 <input class="loginSmallBtn" type="button" value="登入">
@@ -347,6 +352,19 @@ if (menu1) {
         cover.style = "display:block"
     }, false)
 
+    //手機登出
+    let logoutSmallBtn = document.querySelector('.menu1 .inputGroup .logoutSmallBtn');
+    logoutSmallBtn.addEventListener("click", function (e) {
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "loginStatus=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "title=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "photoPath=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.querySelector('.menu1').style = "display:none";
+        loginBtn.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+        logoutSmallBtn.style = "display:none"
+        window.location.reload();
+    }, false)
 }
 
 //個人title狀態點擊
@@ -375,19 +393,97 @@ if (userNone) {
 let loginSmall = document.querySelector(".loginSmall");
 if (loginSmall) {
 
-    //跳轉到註冊
-    let loginSmallBtnRegister = document.querySelector(".loginSmallBtnRegister");
-    loginSmallBtnRegister.addEventListener("click", function (e) {
-        loginSmall.style = "display:none";
-        document.querySelector(".registerSmall").style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
-    }, false)
-    //跳轉到忘記密碼
-    let loginSmallForgetLink = document.querySelector(".loginSmall .loginSmallForgetLink")
 
-    loginSmallForgetLink.addEventListener("click", function (e) {
-        loginSmall.style = "display:none";
-        forgetPasswordSmall.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;";
-    }, false)
+
+    //手機登入卡片
+    let loginSmallStr = `
+        <div class="commonTitleSmall">
+            <h3>醫療人員登入</h3>
+            <img src="pic/Common/cancel.png" alt="">
+        </div>
+        <form action="" class="loginFormSmall">
+            <div class="emailSmall">
+                <label for="emailSmall">Email信箱 * </label>
+                <input name="email" type="email" id="emailSmall" placeholder="例 : example.com">
+            </div>
+            <div class="passwordSmall">
+                <label for="passwordSmall">密碼 *</label>
+                <input name="password" type="password" placeholder="例 : * * * * * *">
+                <img class="eye" src="pic/Common/eyeClose.png">
+            </div>
+            <div class="hintSmall">
+                <div class="checkboxGroup">
+                    <input type="checkbox" id="rememberSmall">
+                    <label for="rememberSmall">記住我</label>
+                </div>
+                <a class="loginSmallForgetLink" href="#">忘記密碼</a>
+            </div>
+            <input class="smallBtn smallc2 loginSmallBtnLogin" type="submit" value="登入">
+            <div class="hr"></div>
+            <input class="smallBtn smallc1 loginSmallBtnRegister" type="button" value="立即註冊">
+            <small>初次使用本網站的醫護人員，請先用醫院信箱註冊帳號。</small>
+        </form>
+    `
+    let loginSmall = document.querySelector(".loginSmall")
+    if (loginSmall) {
+        loginSmall.innerHTML = loginSmallStr
+        //眼睛
+        let eyeLoginS = document.querySelector('.loginSmall  .eye');
+        let loginPasswordS = document.querySelector(".loginSmall .passwordSmall input ")
+        let eyeStatus = 0;
+        eyeLoginS.addEventListener("click", function (e) {
+
+            if (eyeStatus == 0) {
+                eyeStatus = 1;
+                loginPasswordS.type = "text"
+                this.src = "pic/Common/eyeOpen.png";
+            }
+            else {
+                eyeStatus = 0;
+                loginPasswordS.type = "password"
+                this.src = "pic/Common/eyeClose.png";
+            }
+        }, false)
+    }
+    //註冊成功卡片
+    let registerCompletedSmallStr =
+        `
+        <div class="commonTitleSmall">
+            <h3>註冊完成</h3>
+            <img src="pic/Common/cancel.png" alt="">
+        </div>
+        <div class="bigIcon">
+            <img src="pic/Common/CommonCard/bigIcon4.png" alt="">
+        </div>
+        <p>我們已將帳號開通連結傳至您的信箱，請查收信件並點擊該連結，即可開通帳號完成註冊流程。</p>
+        <input type="button" class="smallc2" value="醫護專區">
+    `
+
+    let registerCompletedSmall = document.querySelector(".registerCompletedSmall")
+    if (registerCompletedSmall) {
+        registerCompletedSmall.innerHTML = registerCompletedSmallStr
+    }
+
+    //驗證碼卡片(暫用不到)
+    // let verificationCodeStr = `
+    // <div class=" commonTitleSmall">
+    //         <h3>輸入驗證碼</h3>
+    //         <img src="pic/Common/cancel.png" alt="">
+    //     </div>
+    //     <h4>我們已將驗證碼寄到您的信箱，請查收信件並在下方輸入驗證碼。</h4>
+    //     <form action="">
+    //         <div class="Vertify">
+    //             <label for="Vertify">驗證碼 * </label>
+    //             <input type="text" id="Vertify" placeholder="例 : 1 2 3 4 5 6">
+    //         </div>
+    //         <input class="smallc2" type="submit" value="送出">
+    //     </form>
+    // `
+    // let verificationCode = document.querySelector(".verificationCode");
+    // if (verificationCode) {
+    //     verificationCode.innerHTML = verificationCodeStr
+    // }
+
 
     //登入判別(手機)
     $('.loginFormSmall').on("submit", function (e) {
@@ -417,7 +513,7 @@ if (loginSmall) {
                     document.cookie = `loginStatus=${status}; max-age=7200; path=/`;
                     document.cookie = `title=${title}; max-age=7200; path=/`;
                     document.cookie = `photoPath=${photoPath}; max-age=7200; path=/`;
-                    window.location.href = "MedicalArea.html";
+                    window.location.href = "MedicalArea.php";
                 }
                 else {
                     alert("Email或密碼錯誤")
@@ -431,6 +527,20 @@ if (loginSmall) {
 
 
     })
+
+    //跳轉到註冊
+    let loginSmallBtnRegister = document.querySelector(".loginSmallBtnRegister");
+    loginSmallBtnRegister.addEventListener("click", function (e) {
+        loginSmall.style = "display:none";
+        document.querySelector(".registerSmall").style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+    }, false)
+    //跳轉到忘記密碼
+    let loginSmallForgetLink = document.querySelector(".loginSmall .loginSmallForgetLink")
+
+    loginSmallForgetLink.addEventListener("click", function (e) {
+        loginSmall.style = "display:none";
+        forgetPasswordSmall.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;";
+    }, false)
 }
 
 
@@ -467,16 +577,16 @@ let footer1 =
 
                 </div>
                 <div class="date">
-                    <h5>© 2022</h5>
+                    <h5>© 2022 台灣羅氏大藥廠版權所有</h5>
                 </div>
             </div>
             <div class="line">
-                <h4>你加入 icare 官方 line 了嗎？<br> 現在趕快掃描加入吧！</h4>
-                <img class="QRcode" src="pic/Common/QRcode.svg" alt="">
+                <h4>還有甚麼想了解的資訊嗎？<br>來這裡選擇您想知道的主題吧！</h4>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"><img class="QRcode" src="pic/Common/QRcode.png" alt=""></a>
 
             </div>
             <div class="lineBtn">
-                <a href=""><img src="pic/Common/lineBtn.png" alt=""></a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"><img src="pic/Common/lineBtn.png" alt=""></a>
             </div>
 
         </div>
@@ -492,12 +602,9 @@ let footer1 =
 </div> */
 let footer2 = `
         <div class="footer2">
-            <small>本平台原非用於通報不良事件（副作用），但您可透過網站，向台灣羅氏藥品安全部門通報不良事件，或前往全國藥物不良反應系統網站進行通報。 本平台原非用於通報不良事件（副作用），但您可透過網站
-                (https://www.roche.com/solutions/pharma/safety-reporting)，向台灣羅氏藥品安全部門通報不良事件，或前往全國藥物不良反應系統網站
-                (https://adr.fda.gov.tw/)
-                進行通報。 本網站所載之產品資訊乃供廣泛使用者使用或瀏覽，其中某些產品詳情或資料可能於 閣下所處的國家無法得到或爲無效。 請注意，若獲取該等資料不符合
-                閣下所處的國家的法律程式、規定、註冊或使用，本公司不會承擔任何責任。
-                備註：本聲明有英文版本。如果在中文及英文版本存有歧義，以英文版本為準
+            <small>
+                羅氏網站及其中所含資訊僅供參考。嚴禁重製、轉發或用於其它目的。若希望重製本網站所含的任何資訊，請向羅氏網站管理員申請許可。
+                本平台原非用於通報不良事件（副作用），但您可透過網站 <a href="https://www.roche.com/solutions/pharma/safety-reporting">(https://www.roche.com/solutions/pharma/safety-reporting)</a>，向台灣羅氏藥品安全部門通報不良事件，或前往全國藥物不良反應系統網站 <a href="https://adr.fda.gov.tw/">(https://adr.fda.gov.tw/)</a>進行通報。 本網站所載之產品資訊乃供廣泛使用者使用或瀏覽，其中某些產品詳情或資料可能於 閣下所處的國家無法得到或爲無效。 請注意，若獲取該等資料不符合 閣下所處的國家的法律程式、規定、註冊或使用，本公司不會承擔任何責任。 備註：本聲明有英文版本。如果在中文及英文版本存有歧義，以英文版本為準
             </small>
         </div>
 `;
@@ -571,7 +678,7 @@ if (footer) {
 
 // let menu2 = document.querySelector(".menu2");
 // if (menu2) {
-//     menu2.innerHTML = menu2Str;
+//     menu2.innerHTML = menu2Str;ye
 // }
 
 
@@ -709,7 +816,7 @@ $(document).ready(function () {
                     document.cookie = `loginStatus=${status}; max-age=7200; path=/`;
                     document.cookie = `title=${title}; max-age=7200; path=/`;
                     document.cookie = `photoPath=${photoPath}; max-age=7200; path=/`;
-                    window.location.href = "MedicalArea.html";
+                    window.location.href = "MedicalArea.php";
                 }
                 else {
                     alert("信箱、密碼輸入錯誤或此帳號未開通")
@@ -2584,6 +2691,7 @@ if (getCookieByName('username') && getCookieByName('loginStatus') == 1) {
     document.querySelector(".menu .right .logged").style = "display:block"
     document.querySelector(".menum .loginInBtn").style = "display:none"
     document.querySelector(".menum .loginOutBtn").style = "display:block"
+
 }
 
 //手機板
@@ -2592,5 +2700,120 @@ if (getCookieByName('username') && getCookieByName('loginStatus') == 1) {
     if (RWDHide) {
         RWDHide.style = "display:block";
     }
-
+    document.querySelector(".menu1 .loginSmallBtn").style = "display:none"
+    document.querySelector(".menu1 .logoutSmallBtn").style = "display:block"
 }
+
+//聯外
+
+let OutHrefStr = `
+    <div class="top">
+        <div class="title">聯外聲明</div>
+        <div class="close"><img src="pic/Common/cancel.png" alt=""></div>
+    </div>
+
+        <p>
+        您即將進入第三方網站。本網站可能含有外部網站連結。羅氏不管理外部網站，亦不為此類網站的正確性，內容或隱私保護負責。請自行參考外部網站所發布的法律聲明及隱私政策。
+        外部網站連結僅為方便用戶使用，不代表羅氏認同，贊助，推薦或接受此類網站提供的資訊或意見。若您決定透過本網站的連結進入外部網站，請自行承擔相關風險。</p>
+    <div class="inputGroup">
+        <input class="OutHrefCancel" type="button" value="取消">
+        <input class="OutHrefSure" type="button" value="跳轉">
+    </div>
+`;
+
+
+let OutHref = document.querySelector(".OutHref")
+if (OutHref) {
+    OutHref.innerHTML = OutHrefStr
+}
+//關閉
+let OutHrefCancel = document.querySelector(".OutHref .inputGroup .OutHrefCancel")
+if (OutHrefCancel) {
+    OutHrefCancel.addEventListener("click", function (e) {
+        OutHref.style = "display:none"
+        cover.style = "display:none"
+    }, false)
+}
+
+let OutHrefClose = document.querySelector(".OutHref .close")
+if (OutHrefClose) {
+    OutHrefClose.addEventListener("click", function (e) {
+        OutHref.style = "display:none"
+        cover.style = "display:none"
+    }, false)
+}
+
+
+let url = window.location.href
+let hostName = window.location.hostname;
+
+let aBtn = document.querySelectorAll("a");
+if (aBtn) {
+    aBtn.forEach(function (element) {
+        element.addEventListener("click", function (e) {
+            e.preventDefault()
+            let href = element.href;
+            if (href.includes(hostName)) {
+                window.location.href = href
+            } else {
+                cover.style = "display:block"
+                OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+                document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
+                    window.location.href = href
+                    OutHref.style = "display:none"
+                    cover.style = "display:none"
+                }, false)
+            }
+        }, false)
+    }, false)
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    let OutHref = document.querySelector(".OutHref")
+    if (OutHref) {
+        OutHref.innerHTML = OutHrefStr
+    }
+    //關閉
+    let OutHrefCancel = document.querySelector(".OutHref .inputGroup .OutHrefCancel")
+    if (OutHrefCancel) {
+        OutHrefCancel.addEventListener("click", function (e) {
+            OutHref.style = "display:none"
+            cover.style = "display:none"
+        }, false)
+    }
+
+    let OutHrefClose = document.querySelector(".OutHref .close")
+    if (OutHrefClose) {
+        OutHrefClose.addEventListener("click", function (e) {
+            OutHref.style = "display:none"
+            cover.style = "display:none"
+        }, false)
+    }
+
+
+    let url = window.location.href
+    let hostName = window.location.hostname;
+
+    let aBtn = document.querySelectorAll("a");
+    if (aBtn) {
+        aBtn.forEach(function (element) {
+            element.addEventListener("click", function (e) {
+                e.preventDefault()
+                let href = element.href;
+                if (href.includes(hostName)) {
+                    window.location.href = href
+                } else {
+                    cover.style = "display:block"
+                    OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+                    document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
+                        window.location.href = href
+                        OutHref.style = "display:none"
+                        cover.style = "display:none"
+                    }, false)
+                }
+            }, false)
+        }, false)
+    }
+});
+
+

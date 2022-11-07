@@ -46,9 +46,9 @@ if (!is_dir($folder)) {
 switch ($error) {
     case 0:
         if (move_uploaded_file($tmp_name, $target)) {
-            echo '<script>alert("上傳成功")</script>';
+            echo '<script>alert("更新成功")</script>';
         } else {
-            echo '<script>alert("上傳失敗")</script>';
+            echo '<script>alert("上傳圖片失敗 : ' . $error . '")</script>';
         }
         break;
     case 1:
@@ -115,7 +115,7 @@ $res = mysqli_query($connect, $sql);
 // $row = mysqli_fetch_array($res);
 
 echo
-    ' 
+' 
         <script>
                 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 document.cookie = "photoPath=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -125,7 +125,7 @@ echo
         </script>
     ';
 
-echo "<script>window.location.href='../personal.html'</script>";
+echo "<script>window.location.href='../personal.php'</script>";
 
 
 

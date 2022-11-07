@@ -2,6 +2,10 @@
 include 'db/db.php';
 $sqlR = "SELECT * FROM `article` WHERE `topicSec` = '腸癌治療' AND `publish` = 1 ORDER BY id DESC LIMIT 0 , 3 ";
 $resR = mysqli_query($connect, $sqlR);
+
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,7 @@ $resR = mysqli_query($connect, $sqlR);
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <style>
-        .pic {
+        /* .pic {
 
             text-align: center;
         }
@@ -56,17 +60,29 @@ $resR = mysqli_query($connect, $sqlR);
             .content .article .hideHR {
                 display: none;
             }
-        }
+        } */
     </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
 <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+</script>
+
 <body>
     <div class="cookie"></div>
     <div class="cover"></div>
-
+    <div class="OutHref"></div>
 
     <div class="menum"></div>
     <div class="menu"></div>
@@ -97,7 +113,7 @@ $resR = mysqli_query($connect, $sqlR);
         </div>
 
         <div class="bigIcon">
-            <img src="pic/page9/page9_bigIcon.svg" alt="">
+            <img src="pic/page9/page9_bigIcon.png" alt="">
         </div>
     </div>
 

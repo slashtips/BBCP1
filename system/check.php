@@ -61,7 +61,7 @@ if ($res) {
             cursor: pointer;
         }
 
-        .registerCompleted {}
+        
 
 
         @media screen and (max-width:576px) {
@@ -134,7 +134,7 @@ if ($res) {
 
     if (registerCompletedBtn) {
         registerCompletedBtn.addEventListener("click", function(e) {
-            window.location.href = "../MedicalArea.html";
+            window.location.href = "../MedicalArea.php";
         }, false);
     }
 
@@ -142,7 +142,7 @@ if ($res) {
 
     if (registerCompletedSmallBtn) {
         registerCompletedSmallBtn.addEventListener("click", function(e) {
-            window.location.href = "../MedicalArea.html";
+            window.location.href = "../MedicalArea.php";
         }, false);
     }
 

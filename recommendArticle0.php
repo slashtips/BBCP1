@@ -1,9 +1,11 @@
 <?php
 include  'db/db.php';
 $sql = "SELECT * FROM `article` where  `publish` = 1 ORDER BY id DESC";
-
 $res = mysqli_query($connect, $sql);
 
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,7 @@ $res = mysqli_query($connect, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $topicSec ?> </title>
+    <title>最新消息-全部文章 </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
@@ -39,10 +41,21 @@ $res = mysqli_query($connect, $sql);
 
 <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
 <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+</script>
+
 <body>
     <div class="cookie"></div>
     <div class="cover"></div>
-
+    <div class="OutHref"></div>
 
     <div class="menum"></div>
     <div class="menu"></div>
@@ -140,16 +153,13 @@ $res = mysqli_query($connect, $sql);
     </div>
 
     <div class="articleGroup">
-        <h1 class="titleH1">全部文章</h1>
+        <h1 class="titleH1">最新消息</h1>
         <div class="group">
-
-
 
 
             <?php
             foreach ($res as $article) {
                 echo '
-        
                         <div class="article" data-id = "' . $article['id'] . '">
                                 <img class="errorImg" src="' . $article['articlePath'] . '" alt="">
                             <div class="airticleText">

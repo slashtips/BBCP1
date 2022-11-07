@@ -18,6 +18,11 @@ $resR = mysqli_query($connect, $sqlR);
 // $sqlN = "SELECT * FROM `article0` WHERE `id` = $id + 1 ";
 // $resN = mysqli_query($connect, $sqlN);
 // $rowN = mysqli_fetch_array($resN);
+
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
+
 ?>
 
 <!DOCTYPE html>
@@ -117,6 +122,16 @@ $resR = mysqli_query($connect, $sqlR);
 
 <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
 <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+</script>
 
 <body>
 
@@ -135,7 +150,7 @@ $resR = mysqli_query($connect, $sqlR);
 
     <div class="cookie"></div>
     <div class="cover"></div>
-
+    <div class="OutHref"></div>
     <div class="menum"></div>
     <div class="menuWrap">
         <div class="menu"></div>
@@ -400,6 +415,9 @@ $resR = mysqli_query($connect, $sqlR);
             window.location.href = "ArticleCommon.php?i=" + element.dataset.id
         }, false)
     })
+
+    
+
 </script>
 
 </html>

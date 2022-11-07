@@ -2,6 +2,10 @@
 include 'db/db.php';
 $sqlR = "SELECT * FROM `article` WHERE `topicSec` = '生活品質' AND `publish` = 1 ORDER BY id DESC LIMIT 0 , 3 ";
 $resR = mysqli_query($connect, $sqlR);
+
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +14,7 @@ $resR = mysqli_query($connect, $sqlR);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>疾病篩檢</title>
+    <title>個人化精準醫療</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,20 +46,23 @@ $resR = mysqli_query($connect, $sqlR);
             right: 3%;
             z-index: 1;
         }
-
+       
         .topic h3 {
             z-index: 9;
         }
 
         .topic h1 {
             z-index: 9;
+            white-space: wrap;
         }
 
         @media screen and (max-width: 576px) {
             .bigIcon2 {
                 width: 30%;
             }
-
+            .topic{
+            width: 64%;
+        }
         }
     </style>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -66,11 +73,21 @@ $resR = mysqli_query($connect, $sqlR);
 <script src="include/jquery-ui-1.13.2/jquery-ui.min.js"></script>
 <script src="include/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+</script>
 <body>
 
     <div class="cookie"></div>
     <div class="cover"></div>
-
+    <div class="OutHref"></div>
     <div class="menum"></div>
     <div class="menuWrap">
         <div class="menu"></div>

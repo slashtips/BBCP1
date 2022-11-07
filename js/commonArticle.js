@@ -146,7 +146,7 @@ let menuLeft =
             <div class="roche">
                 <img src="../../pic/Common/roche.svg" alt="">
             </div>
-            <div class="logo"><a href="../../index.html">腸癌治療旅程</a> </div>
+            <div class="logo"><a href="../../index.php">腸癌治療旅程</a> </div>
         </div>
 `;
 
@@ -165,8 +165,8 @@ let menuRight =
                 </div>
                 <ul>
                     <h6 class="title"></h6>
-                    <li><a href="../../personal.html">個人主頁</a></li>
-                    <li class="hide" ><a href="../../MedicalArea.html">醫護專區</a></li>
+                    <li><a href="../../personal.php">個人主頁</a></li>
+                    <li class="hide" ><a href="../../MedicalArea.php">醫護專區</a></li>
                     <li class="hide" ><a href="../../back.html" target="_blank">後台管理</a></li>
                 </ul>
 
@@ -396,7 +396,7 @@ if (loginSmall) {
                     document.cookie = `username=${name}; max-age=7200; path=/`;
                     document.cookie = `email=${email}; max-age=7200; path=/`;
                     document.cookie = `loginStatus=${status}; max-age=7200; path=/`;
-                    window.location.href = "MedicalArea.html";
+                    window.location.href = "MedicalArea.php";
                 }
                 else {
                     alert("Email或密碼錯誤")
@@ -677,7 +677,7 @@ $(document).ready(function () {
                     document.cookie = `username=${name}; max-age=7200; path=/`;
                     document.cookie = `email=${email}; max-age=7200; path=/`;
                     document.cookie = `loginStatus=${status}; max-age=7200; path=/`;
-                    window.location.href = "MedicalArea.html";
+                    window.location.href = "MedicalArea.php";
                 }
                 else {
                     alert("信箱、密碼輸入錯誤或此帳號未開通")

@@ -2,6 +2,10 @@
 include 'db/db.php';
 $sqlR = "SELECT * FROM `article` WHERE `topicSec` = '腸癌治療' AND `publish` = 1 ORDER BY id DESC LIMIT 0 , 3 ";
 $resR = mysqli_query($connect, $sqlR);
+
+$sqlGA = "SELECT * FROM `GACode`";
+$resGA = mysqli_query($connect, $sqlGA);
+$rowGA = mysqli_fetch_array($resGA);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +32,21 @@ $resR = mysqli_query($connect, $sqlR);
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $rowGA['CodeID'] ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo $rowGA['CodeID'] ?>');
+</script>
 <body>
 
     <div class="cookie"></div>
     <div class="cover"></div>
-
+    <div class="OutHref"></div>
 
     <div class="menum"></div>
     <div class="menu"></div>
