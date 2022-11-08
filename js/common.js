@@ -2723,50 +2723,73 @@ let OutHrefStr = `
 
 
 let OutHref = document.querySelector(".OutHref")
-if (OutHref) {
-    OutHref.innerHTML = OutHrefStr
-}
-//關閉
-let OutHrefCancel = document.querySelector(".OutHref .inputGroup .OutHrefCancel")
-if (OutHrefCancel) {
-    OutHrefCancel.addEventListener("click", function (e) {
-        OutHref.style = "display:none"
-        cover.style = "display:none"
-    }, false)
-}
-
-let OutHrefClose = document.querySelector(".OutHref .close")
-if (OutHrefClose) {
-    OutHrefClose.addEventListener("click", function (e) {
-        OutHref.style = "display:none"
-        cover.style = "display:none"
-    }, false)
-}
-
-
-let url = window.location.href
-let hostName = window.location.hostname;
-
-let aBtn = document.querySelectorAll("a");
-if (aBtn) {
-    aBtn.forEach(function (element) {
-        element.addEventListener("click", function (e) {
-            e.preventDefault()
-            let href = element.href;
-            if (href.includes(hostName)) {
-                window.location.href = href
-            } else {
-                cover.style = "display:block"
-                OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
-                document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
-                    window.location.href = href
-                    OutHref.style = "display:none"
-                    cover.style = "display:none"
-                }, false)
-            }
+    if (OutHref) {
+        OutHref.innerHTML = OutHrefStr
+    }
+    //關閉
+    let OutHrefCancel = document.querySelector(".OutHref .inputGroup .OutHrefCancel")
+    if (OutHrefCancel) {
+        OutHrefCancel.addEventListener("click", function (e) {
+            OutHref.style = "display:none"
+            cover.style = "display:none"
         }, false)
-    }, false)
-}
+    }
+
+    let OutHrefClose = document.querySelector(".OutHref .close")
+    if (OutHrefClose) {
+        OutHrefClose.addEventListener("click", function (e) {
+            OutHref.style = "display:none"
+            cover.style = "display:none"
+        }, false)
+    }
+
+
+    let roche = "roche.com.tw";
+    let QRcode1 = "https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"
+    let QRcode2 = "https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"
+    let hostName = window.location.hostname;
+    // let URLArray = []
+    // URLArray.push(hostName, roche, QRcode1, QRcode2)
+
+
+    let aBtn = document.querySelectorAll("a");
+    if (aBtn) {
+        aBtn.forEach(function (element) {
+            let href = element.href;
+            element.addEventListener("click", function (e) {
+                e.preventDefault()
+                if (href.includes(roche) || href.includes(QRcode1) || href.includes(QRcode2) || href.includes(hostName)) {
+                    window.location.href = href
+                }
+                else {
+                    cover.style = "display:block"
+                    OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+                    document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
+                        window.location.href = href
+                        OutHref.style = "display:none"
+                        cover.style = "display:none"
+                    }, false)
+                }
+                // URLArray.forEach(function (element2) {
+                //     if (href.includes(element2)) {
+                //         havH = 1;
+                //     }
+                // }, false)
+
+                // if (havH == 1) {
+                //     window.location.href = href
+                // } else if (havH == -1) {
+                //     cover.style = "display:block"
+                //     OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+                //     document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
+                //         window.location.href = href
+                //         OutHref.style = "display:none"
+                //         cover.style = "display:none"
+                //     }, false)
+                // }
+            }, false)
+        }, false)
+    }
 
 document.addEventListener('DOMContentLoaded', function () {
     let OutHref = document.querySelector(".OutHref")
@@ -2791,18 +2814,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    let url = window.location.href
+    let roche = "roche.com.tw";
+    let QRcode1 = "https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"
+    let QRcode2 = "https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"
     let hostName = window.location.hostname;
+    // let URLArray = []
+    // URLArray.push(hostName, roche, QRcode1, QRcode2)
+
 
     let aBtn = document.querySelectorAll("a");
     if (aBtn) {
         aBtn.forEach(function (element) {
+            let href = element.href;
             element.addEventListener("click", function (e) {
                 e.preventDefault()
-                let href = element.href;
-                if (href.includes(hostName)) {
+                if (href.includes(roche) || href.includes(QRcode1) || href.includes(QRcode2) || href.includes(hostName)) {
                     window.location.href = href
-                } else {
+                }
+                else {
                     cover.style = "display:block"
                     OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
                     document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
@@ -2811,6 +2840,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         cover.style = "display:none"
                     }, false)
                 }
+                // URLArray.forEach(function (element2) {
+                //     if (href.includes(element2)) {
+                //         havH = 1;
+                //     }
+                // }, false)
+
+                // if (havH == 1) {
+                //     window.location.href = href
+                // } else if (havH == -1) {
+                //     cover.style = "display:block"
+                //     OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+                //     document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
+                //         window.location.href = href
+                //         OutHref.style = "display:none"
+                //         cover.style = "display:none"
+                //     }, false)
+                // }
             }, false)
         }, false)
     }

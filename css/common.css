@@ -294,7 +294,6 @@ img {
   justify-content: space-between;
   margin-top: 10px;
   width: 100%;
-  display: none;
 }
 .menum .wrap .line .left {
   display: flex;
@@ -320,6 +319,7 @@ img {
 }
 .menum .wrap .line .inputGroup {
   width: 100%;
+  display: none;
   text-align: right;
 }
 .menum .wrap .line .inputGroup input {
@@ -1602,7 +1602,7 @@ img {
   padding: 0.25rem;
   font-weight: 600;
   font-size: 20px;
-  color: #424452;
+  color: #424452 !important;
 }
 .loginSmall small {
   display: block;
@@ -1872,6 +1872,7 @@ img {
     border: none;
     width: 80%;
     margin: 40px auto 0;
+    color: #424452 !important;
     display: none;
   }
   .menu1 .wrap ul {
@@ -1893,7 +1894,7 @@ img {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 20px !important;
     line-height: 23px;
     letter-spacing: 0.04em;
     color: #ffffff;
