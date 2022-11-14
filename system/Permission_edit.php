@@ -32,7 +32,6 @@ $row = mysqli_fetch_array($res2);
 
             <select name="title" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option selected value="管理者">管理者</option>
-                <option value="編輯者">編輯者</option>
                 <option value="醫護人員">醫護人員</option>
             </select>
 

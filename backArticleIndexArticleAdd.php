@@ -22,6 +22,7 @@ $row = mysqli_fetch_array($res);
 </head>
 
 <body>
+
 	<div class="backMenu"></div>
 	<div class="container text-center">
 		<h1>新增腸癌文章</h1>

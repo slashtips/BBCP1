@@ -6,8 +6,8 @@ $topicSec = $_POST["topicSec"];
 $content = $_POST["content"];
 date_default_timezone_set('Asia/Taipei'); //時區
 $date = date("Y-m-d H:i:s"); //日期
-$status = 0;
-$publish = 0;
+$status = 1;
+$publish = 1;
 
 date_default_timezone_set('Asia/Taipei'); //時區
 $sql = "INSERT INTO `QA` ( `title`, `content`, `topicSec`, `status`, `publish`, `createTime`) VALUES ( '$title', '$content', '$topicSec', '$status', '$publish', '$date');";

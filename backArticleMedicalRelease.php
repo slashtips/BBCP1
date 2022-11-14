@@ -91,7 +91,7 @@ $res = mysqli_query($connect, $sql);
 
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
 
-
+<script src="js/back.js"></script>
 <body>
     <div class="backMenu"></div>
 

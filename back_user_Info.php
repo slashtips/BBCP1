@@ -13,7 +13,7 @@ $res = mysqli_query($connect, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>會員編輯</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,6 +70,9 @@ $res = mysqli_query($connect, $sql);
             font-weight: 400;
             padding: .5rem 0 0 0;
         }
+        .table-striped thead tr{
+            white-space: nowrap;
+        }
     </style>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -95,9 +98,7 @@ $res = mysqli_query($connect, $sql);
                     <th scope="col">密碼</th>
                     <th scope="col">註冊日期</th>
                     <th scope="col">身分</th>
-                    <th scope="col">大頭貼</th>
-                    <th scope="col">狀態</th>
-
+                    <th scope="col">開通狀態</th>
                 </tr>
             </thead>
             <tbody>
@@ -111,7 +112,6 @@ $res = mysqli_query($connect, $sql);
                     echo "<td>" . $user['password'] . "</td>";
                     echo "<td>" . $user['date'] . "</td>";
                     echo "<td>" . $user['title'] . "</td>";
-                    echo "<td>" . $user['photoPath'] . "</td>";
                     echo "<td>" . $user['status'] . "</td>";
                     echo "<td>" . "<a href='system/user_edit.php?i=$user[id]' class='btn btn-outline-success me-2'>編輯</a>";
                     echo "</tr>";

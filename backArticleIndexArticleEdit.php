@@ -78,6 +78,23 @@ $row = mysqli_fetch_array($res2);
 				<label for="source" class="form-label">資訊來源 : </label><br>
 				<input type="text" name="source" class="form-control" id="source" aria-describedby="basic-addon3" value="<?php echo $row['source']; ?>">
 			</div>
+			
+
+			<div class="mb-3">
+				<label for="formFile" class="form-label">封面圖片</label>
+				<input class="form-control" type="file" id="formFile" name="articlePath" accept="image/*" type="file" placeholder="可接受 .jpg、.png、.gif 等圖檔">
+			</div>
+
+			<div class="mb-3">
+				<label for="formFile" class="form-label">文章圖片</label>
+				<input class="form-control" type="file" name="picture" id="picture" accept="image/*" type="file" placeholder="可接受 .jpg、.png、.gif 等圖檔">
+			</div>
+
+			<div class="mb-3">
+				<label for="video" class="form-label">影片遷入</label><br>
+				<input type="text" name="video" class="form-control" id="video" aria-describedby="basic-addon3">
+			</div>
+
 			<div class="mb-3">
 				<label for="content" class="form-label">文章內容 : </label><br>
 				<textarea class="editor" name="content" id="content" cols="60" rows="10"><?php echo $row['content']; ?></textarea>

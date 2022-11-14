@@ -136,8 +136,8 @@ $source = $_POST["source"];
 $video = $_POST["video"];
 date_default_timezone_set('Asia/Taipei'); //時區
 $date = date("Y-m-d H:i:s"); //日期
-$status = 0;
-$publish = 0;
+$status = 1;
+$publish = 1;
 
 date_default_timezone_set('Asia/Taipei'); //時區
 $sql = "INSERT INTO `articleM` ( `topicSec`,`title`, `content`, `source`,`articlePath`,`video`,`picture`,`status`,`publish`, `createTime`, `updateTime`) VALUES (  '$topicSec', '$title', '$content', '$source','$path','$video','$path2','$status','$publish', '$date', '$date');";

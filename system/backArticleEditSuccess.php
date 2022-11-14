@@ -12,6 +12,15 @@ $date = date("Y-m-d H:i:s"); //日期
 $id = $_POST["id"];
 $body = $_POST["body"];
 date_default_timezone_set('Asia/Taipei'); //時區
+
+$sqlS = "SELECT * FROM `article`" ;
+$resS = mysqli_query($connect, $sqlS);
+$row = $resS -> fetch_assoc();
+
+$articlePathOld = $row['articlePath'];
+$videoOld = $row['video'];
+$pictureOld = $row['picture'];
+
 $sql = "UPDATE `article` SET  `title` = '$title',`topicSec` = '$topicSec', `content` = '$content', `updateTime` = '$date' WHERE `article`.`id` = $id;";
 
 $res = mysqli_query($connect, $sql);

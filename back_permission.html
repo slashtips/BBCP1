@@ -66,7 +66,8 @@
             padding: .5rem 0 0 0;
             white-space: nowrap;
         }
-        .highLevel{
+
+        .highLevel {
             display: none;
         }
     </style>
@@ -129,6 +130,14 @@
                 </div>
 
                 <div class="col-12 highLevel">
+                    <a href="">
+                        <div class="card">
+                            <h3>信件設定</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 highLevel">
                     <a href="backGA.php">
                         <div class="card">
                             <h3>GA Code設置</h3>
@@ -175,7 +184,7 @@
         return value;
     }
 
-  if (getCookieByName('title') != "管理者" && getCookieByName('title') != "編輯者") {
+    if (getCookieByName('title') != "管理者" && getCookieByName('title') != "編輯者") {
         window.location.href = "index.php";
     }
 

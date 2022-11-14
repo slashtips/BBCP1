@@ -104,6 +104,7 @@ $row = mysqli_fetch_array($res);
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
 
 <script src="include/CkeEditor/build/ckeditor.js"></script>
+<script src="js/back.js"></script>
 <script>
 	const watchdog = new CKSource.EditorWatchdog();
 

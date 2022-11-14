@@ -392,7 +392,7 @@ img {
 
             .inputGroup {
                 width: 100%;
-                display: none;
+
                 text-align: right;
 
                 input {
@@ -419,9 +419,11 @@ img {
         }
     }
 }
-
 //menum平板
 @media screen and(max-width:960px) {
+    .loginH {
+        transform: translate(-50%, -50%) scale(0.5) !important;
+    }
     .menum {
         min-height: 100%;
 
@@ -550,31 +552,31 @@ img {
             }
 
             .line {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-top: 10px;
-                width: 100%;
-                // display: none;
+                // display: flex;
+                // align-items: center;
+                // justify-content: space-between;
+                // margin-top: 10px;
+                // width: 100%;
+                // // display: none;
 
-                .left {
-                    display: flex;
-                    align-items: center;
-                    white-space: nowrap;
-                    width: 60%;
+                // .left {
+                //     display: flex;
+                //     align-items: center;
+                //     white-space: nowrap;
+                //     width: 60%;
 
-                    p {
-                        margin-left: 0.5rem;
-                    }
-                }
+                //     p {
+                //         margin-left: 0.5rem;
+                //     }
+                // }
 
                 img {
-                    text-align: center;
-                    background-color: #fff;
-                    width: 50%;
-                    margin: 0 auto;
-                    border-radius: 40px;
-                    margin-top: 0.5rem;
+                    // text-align: center;
+                    // background-color: #fff;
+                    // width: 50%;
+                    // margin: 0 auto;
+                    // border-radius: 40px;
+                    // margin-top: 0.5rem;
                 }
 
                 .inputGroup {
@@ -700,6 +702,9 @@ img {
                     text-align: right;
                     font-size: 0.85rem;
                 }
+                .backHide {
+                    display: none;
+                }
 
                 li {
                     text-align: center;
@@ -738,7 +743,7 @@ img {
             margin-right: 15%;
             cursor: pointer;
             //階段一
-             display: none;
+            //  display: none;
         }
 
         .bar {
@@ -921,7 +926,7 @@ img {
                 cursor: pointer;
             }
         }
-    
+
         p {
             font-weight: 400;
             font-size: 1rem;
@@ -930,7 +935,7 @@ img {
             line-height: 1.2;
             margin-top: 12px;
         }
-    
+
         .inputGroup {
             display: flex;
             justify-content: center;
@@ -1024,8 +1029,6 @@ img {
                     bottom: -30%;
                     left: 7%;
                 }
-
-                
             }
 
             .tp2 {
@@ -2239,7 +2242,6 @@ img {
                 letter-spacing: 0.01em;
                 display: block;
                 width: 100%;
-
                 text-align: center;
             }
 
@@ -2271,7 +2273,7 @@ img {
                 margin: 40px auto 0;
                 color: #424452 !important;
                 //階段一
-                  display: none;
+                //   display: none;
             }
 
             ul {
@@ -2332,7 +2334,7 @@ img {
 
             .inputGroup {
                 .logoutSmallBtn {
-                    display: none;
+                    color: #424452 !important;
                 }
             }
         }

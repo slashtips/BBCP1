@@ -173,7 +173,7 @@ let menuRight =
                     <h6 class="title"></h6>
                     <li><a href="personal.php">個人主頁</a></li>
                     <li class="hide" ><a href="MedicalArea.php">醫護專區</a></li>
-                    <li class="hide" ><a href="back.html" target="_blank">後台管理</a></li>
+                    <li class="hide backHide" ><a href="back.html" style="display:none" target="_blank">後台管理</a></li>
                 </ul>
 
             </div>
@@ -2704,6 +2704,14 @@ if (getCookieByName('username') && getCookieByName('loginStatus') == 1) {
     document.querySelector(".menu1 .logoutSmallBtn").style = "display:block"
 }
 
+//後台選單隱藏
+let backHide = document.querySelector(".backHide");
+if (backHide) {
+    if (getCookieByName('username')  && (getCookieByName('title') == "管理者" ||getCookieByName('title') == "編輯者")) {
+        backHide.style = "display:block"
+    }
+}
+
 //聯外
 
 let OutHrefStr = `
@@ -2723,73 +2731,73 @@ let OutHrefStr = `
 
 
 let OutHref = document.querySelector(".OutHref")
-    if (OutHref) {
-        OutHref.innerHTML = OutHrefStr
-    }
-    //關閉
-    let OutHrefCancel = document.querySelector(".OutHref .inputGroup .OutHrefCancel")
-    if (OutHrefCancel) {
-        OutHrefCancel.addEventListener("click", function (e) {
-            OutHref.style = "display:none"
-            cover.style = "display:none"
-        }, false)
-    }
+if (OutHref) {
+    OutHref.innerHTML = OutHrefStr
+}
+//關閉
+let OutHrefCancel = document.querySelector(".OutHref .inputGroup .OutHrefCancel")
+if (OutHrefCancel) {
+    OutHrefCancel.addEventListener("click", function (e) {
+        OutHref.style = "display:none"
+        cover.style = "display:none"
+    }, false)
+}
 
-    let OutHrefClose = document.querySelector(".OutHref .close")
-    if (OutHrefClose) {
-        OutHrefClose.addEventListener("click", function (e) {
-            OutHref.style = "display:none"
-            cover.style = "display:none"
-        }, false)
-    }
-
-
-    let roche = "roche.com.tw";
-    let QRcode1 = "https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"
-    let QRcode2 = "https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"
-    let hostName = window.location.hostname;
-    // let URLArray = []
-    // URLArray.push(hostName, roche, QRcode1, QRcode2)
+let OutHrefClose = document.querySelector(".OutHref .close")
+if (OutHrefClose) {
+    OutHrefClose.addEventListener("click", function (e) {
+        OutHref.style = "display:none"
+        cover.style = "display:none"
+    }, false)
+}
 
 
-    let aBtn = document.querySelectorAll("a");
-    if (aBtn) {
-        aBtn.forEach(function (element) {
-            let href = element.href;
-            element.addEventListener("click", function (e) {
-                e.preventDefault()
-                if (href.includes(roche) || href.includes(QRcode1) || href.includes(QRcode2) || href.includes(hostName)) {
+let roche = "roche.com.tw";
+let QRcode1 = "https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"
+let QRcode2 = "https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"
+let hostName = window.location.hostname;
+// let URLArray = []
+// URLArray.push(hostName, roche, QRcode1, QRcode2)
+
+
+let aBtn = document.querySelectorAll("a");
+if (aBtn) {
+    aBtn.forEach(function (element) {
+        let href = element.href;
+        element.addEventListener("click", function (e) {
+            e.preventDefault()
+            if (href.includes(roche) || href.includes(QRcode1) || href.includes(QRcode2) || href.includes(hostName)) {
+                window.location.href = href
+            }
+            else {
+                cover.style = "display:block"
+                OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+                document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
                     window.location.href = href
-                }
-                else {
-                    cover.style = "display:block"
-                    OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
-                    document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
-                        window.location.href = href
-                        OutHref.style = "display:none"
-                        cover.style = "display:none"
-                    }, false)
-                }
-                // URLArray.forEach(function (element2) {
-                //     if (href.includes(element2)) {
-                //         havH = 1;
-                //     }
-                // }, false)
+                    OutHref.style = "display:none"
+                    cover.style = "display:none"
+                }, false)
+            }
+            // URLArray.forEach(function (element2) {
+            //     if (href.includes(element2)) {
+            //         havH = 1;
+            //     }
+            // }, false)
 
-                // if (havH == 1) {
-                //     window.location.href = href
-                // } else if (havH == -1) {
-                //     cover.style = "display:block"
-                //     OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
-                //     document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
-                //         window.location.href = href
-                //         OutHref.style = "display:none"
-                //         cover.style = "display:none"
-                //     }, false)
-                // }
-            }, false)
+            // if (havH == 1) {
+            //     window.location.href = href
+            // } else if (havH == -1) {
+            //     cover.style = "display:block"
+            //     OutHref.style = "display:block;animation: toggleDown .5s;animation - fill - mode: forwards;"
+            //     document.querySelector(".OutHref .OutHrefSure").addEventListener("click", function (e) {
+            //         window.location.href = href
+            //         OutHref.style = "display:none"
+            //         cover.style = "display:none"
+            //     }, false)
+            // }
         }, false)
-    }
+    }, false)
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     let OutHref = document.querySelector(".OutHref")
@@ -2861,5 +2869,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, false)
     }
 });
+
 
 

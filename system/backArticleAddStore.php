@@ -1,7 +1,7 @@
 <?php
 include  '../db/db.php';
 
-extract($_FILES['imgPath']);
+extract($_FILES['articlePath']);
 
 $img_name = md5(time()); //建立亂數檔名
 $ext = pathinfo($name, PATHINFO_EXTENSION); //取得副檔名
@@ -17,14 +17,14 @@ $fullname = $img_name . '.' . $ext; //合併檔名+副檔名
 
 
 
-$folder = '../store/meetingImg/'; //上傳路徑
+$folder = '../store/articleImg/'; //上傳路徑
 $target = $folder . $fullname; // 目標路徑
-$path = 'store/meetingImg/' . $fullname;
+$path = 'store/articleImg/' . $fullname;
 if (!is_dir($folder)) {
     mkdir($folder);
     //若資料夾不存在就建立資料夾
 }
-// if (!$_FILES["imgPath"]["name"]) {
+// if (!$_FILES["articlePath"]["name"]) {
 //     $path = "pic/Common/R/r2.png";
 // } 
 
@@ -79,14 +79,14 @@ if ($_FILES['picture']) {
 
 
 
-    $folder = '../store/meetingImg/'; //上傳路徑
+    $folder = '../store/articleImg/'; //上傳路徑
     $target = $folder . $fullname; // 目標路徑
-    $path2 = 'store/meetingImg/' . $fullname;
+    $path2 = 'store/articleImg/' . $fullname;
     if (!is_dir($folder)) {
         mkdir($folder);
         //若資料夾不存在就建立資料夾
     }
-    // if (!$_FILES["imgPath"]["name"]) {
+    // if (!$_FILES["articlePath"]["name"]) {
     //     $path = "pic/Common/R/r2.png";
     // } 
 
@@ -124,25 +124,42 @@ if ($_FILES['picture']) {
 }
 
 
+
+
+
+// $topic = $_POST["topic"];
 $title = $_POST["title"];
 $topicSec = $_POST["topicSec"];
-$source = $_POST["source"];
+// $type = $_POST["type"];
 $content = $_POST["content"];
-$tag = $_POST["tag"];
+$source = $_POST["source"];
 $video = $_POST["video"];
-$form = $_POST["form"];
-$date = $_POST["date"];
-$location = $_POST["location"];
-$meetingTime = $_POST["meetingTime"];
 date_default_timezone_set('Asia/Taipei'); //時區
-$date0 = date("Y-m-d H:i:s"); //日期
+$date = date("Y-m-d H:i:s"); //日期
 $status = 1;
 $publish = 1;
 
 date_default_timezone_set('Asia/Taipei'); //時區
-$sql = "INSERT INTO `meeting` ( `title`,`topicSec`, `source`, `content`, `status`, `publish`, `tag`, `imgPath`, `picture`, `video`, `form`, `date`,`location`, `createTime`, `updateTime`) VALUES ( '$title','$topicSec', '$source', '$content', '0', '0', '$tag', '$path', '$path2', '$video', '$form', '$date', '$location', '$date0', '$date0');";
+$sql = "INSERT INTO `article` ( `topicSec`,`title`, `content`, `source`,`articlePath`,`video`,`picture`,`status`,`publish`, `createTime`, `updateTime`) VALUES (  '$topicSec', '$title', '$content', '$source','$path','$video','$path2','$status','$publish', '$date', '$date');";
 $res = mysqli_query($connect, $sql);
 
+// $sqlU = "SELECT * FROM `article`  ORDER BY id DESC LIMIT 0 , 1";
+// $resU = mysqli_query($connect, $sqlU);
+// $rowU = mysqli_fetch_array($resU);
 
-echo "<script> alert('文章新增成功，請等候批准');window.location.href='../back_meeting.html'; </script>";
+// $sqlR1 = "SELECT * FROM `article`  ORDER BY id DESC LIMIT 0 , 9";
+// $resR1 = mysqli_query($connect, $sqlR1);
+// $rowR1 = mysqli_fetch_array($resR1);
+
+// $sqlB = "SELECT * FROM `article` where  `publish` = 1 AND `topicSec` = ' . $topicSec . '";
+// $resB = mysqli_query($connect, $sqlB);
+// $rowB = mysqli_fetch_array($resB);
+
+// $id  = $rowU['id'];
+
+// $sqlA = "SELECT * FROM `article` WHERE id = $id";
+// $resA = mysqli_query($connect, $sqlA);
+// $rowA = mysqli_fetch_array($resA);
+
+echo "<script> alert('文章新增成功，請等候批准');window.location.href='../back_articleArticleIndex.html'; </script>";
 exit;
