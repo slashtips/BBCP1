@@ -1,12 +1,14 @@
 <?php
 
 include 'db/db.php';
-$sql1  = "SELECT * FROM `users` WHERE `title` = '管理者'";
+
+$sql1  = "SELECT * FROM `users` WHERE `title` = '系統管理者'";
 $res1 = mysqli_query($connect, $sql1);
-// $sql2  = "SELECT * FROM `users` WHERE `title` = '編輯者'";
-// $res2 = mysqli_query($connect, $sql2);
+$sql2  = "SELECT * FROM `users` WHERE `title` = '管理者'";
+$res2 = mysqli_query($connect, $sql2);
 $sql3  = "SELECT * FROM `users` WHERE `title` = '醫護人員'";
 $res3 = mysqli_query($connect, $sql3);
+
 
 ?>
 
@@ -100,8 +102,8 @@ $res3 = mysqli_query($connect, $sql3);
     <div class="container">
         <nav class="mt-3">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">管理者</button>
-                <!-- <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">編輯者</button> -->
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">系統管理者</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">管理者</button>
                 <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">醫療人員</button>
             </div>
         </nav>
@@ -135,7 +137,7 @@ $res3 = mysqli_query($connect, $sql3);
                     </table>
                 </div>
             </div>
-            <!-- <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
@@ -149,21 +151,21 @@ $res3 = mysqli_query($connect, $sql3);
                         </thead>
                         <tbody>
                             <?php
-                            // foreach ($res2 as $user) {
-                            //     echo "<tr>";
-                            //     echo "<tr>";
-                            //     echo "<td>" . $user['id'] . "</td>";
-                            //     echo "<td>" . $user['firstName'] . $user['lastName'] . "</td>";
-                            //     echo "<td>" . $user['email'] . "</td>";
-                            //     echo "<td>" . "<a href='system/Permission_edit.php?id=$user[id]' class='btn btn-outline-success me-2'>權限調整</a>";
-                            //     echo "</tr>";
-                            // }
+                            foreach ($res2 as $user) {
+                                echo "<tr>";
+                                echo "<tr>";
+                                echo "<td>" . $user['id'] . "</td>";
+                                echo "<td>" . $user['firstName'] . $user['lastName'] . "</td>";
+                                echo "<td>" . $user['email'] . "</td>";
+                                echo "<td>" . "<a href='system/Permission_edit.php?id=$user[id]' class='btn btn-outline-success me-2'>權限調整</a>";
+                                echo "</tr>";
+                            }
                             ?>
                         </tbody>
                     </table>
                 </div>
 
-            </div> -->
+            </div> 
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 
                 <div class="table-responsive">
@@ -235,7 +237,7 @@ $res3 = mysqli_query($connect, $sql3);
         return value;
     }
 
-    if (getCookieByName('title') != "管理者") {
-        window.location.href = "index.php";
-    }
+    if (getCookieByName('title') != "系統管理者" && getCookieByName('title') != "管理者") {
+            window.location.href = "index.php";
+        }
 </script>

@@ -1895,13 +1895,14 @@ img {
   .menu1 .wrap .line {
     text-align: center;
     background-color: #fff;
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 40px;
     margin-top: 0.5rem;
     display: none;
   }
   .menu1 .wrap .inputGroup .logoutSmallBtn {
+    display: none;
     color: #424452 !important;
   }
 }

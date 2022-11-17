@@ -73,7 +73,7 @@ $row = mysqli_fetch_array($res);
 		return value;
 	}
 
-	if (getCookieByName('title') != "管理者") {
-		window.location.href = "index.php";
-	}
+	if (getCookieByName('title') != "系統管理者" && getCookieByName('title') != "管理者") {
+            window.location.href = "index.php";
+        }
 </script>

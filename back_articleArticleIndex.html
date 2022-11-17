@@ -100,7 +100,7 @@
                     </a>
                 </div>
                 <div class="col-12">
-                    <a href="backArticleEditInfo.php" class="highLevel">
+                    <a href="backArticleEditInfo.php" >
                         <div class="card">
                             <h3>文章編輯</h3>
                         </div>
@@ -166,7 +166,7 @@
         return value;
     }
 
-     if (getCookieByName('title') != "管理者" && getCookieByName('title') != "編輯者") {
+    if (getCookieByName('title') != "系統管理者" && getCookieByName('title') != "管理者") {
             window.location.href = "index.php";
         }
 

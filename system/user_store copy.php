@@ -1,16 +1,5 @@
 <?php
 include  '../db/db.php';
-$sql = "SELECT * FROM `SMTP` WHERE id = '1' ";
-$res = mysqli_query($connect, $sql);
-$row = mysqli_fetch_array($res);
-
-$SMTP_Server = $row["SMTP_Server"];
-$SMTP_Email = $row["SMTP_Email"];
-$SMTP_Password = $row["SMTP_Password"];
-$Port = $row["Port"];
-$Send_Email = $row["Send_Email"];
-$Send_ID = $row["Send_ID"];
-
 $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
 $email = $_POST["email"];
@@ -63,19 +52,19 @@ try {
     $mail->CharSet = "UTF-8";                     //设定邮件编码
     $mail->SMTPDebug = 0;                        // 调试模式输出
     $mail->isSMTP();                             // 使用SMTP
-    $mail->Host = $SMTP_Server;                // SMTP服务器              // SMTP服务器
+    $mail->Host = 'smtp.gmail.com';                // SMTP服务器              // SMTP服务器
     $mail->SMTPAuth = true;                      // 允许 SMTP 认证
-    $mail->Username = $SMTP_Email;                // SMTP 用户名  即邮箱的用户名
-    $mail->Password = $SMTP_Password;             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
+    $mail->Username = 'service@zfcloud.cc';                // SMTP 用户名  即邮箱的用户名
+    $mail->Password = 'Zf69678786web';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
     // 允许 TLS 或者ssl协议
-    $mail->Port = $Port;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
+    $mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
 
-    $mail->setFrom($SMTP_Email, $Send_ID);  //发件人
+    $mail->setFrom('service@zfcloud.cc', 'BBC');  //发件人
     $mail->addAddress($email, $lastName);  // 收件人
     //$mail->addAddress('ellen@example.com');  // 可添加多个收件人
-    $mail->addReplyTo($SMTP_Email, 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+    $mail->addReplyTo('service@zfcloud.cc', 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
     //$mail->addCC('cc@example.com');                    //抄送
     $mail->addBCC('royz1110110@gmail.com');                    //密送
 

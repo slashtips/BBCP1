@@ -139,9 +139,9 @@ $res = mysqli_query($connect, $sql);
 
         return value;
     }
-    if (getCookieByName('title') != "管理者" && getCookieByName('title') != "編輯者") {
-        window.location.href = "index.php";
-    }
+    if (getCookieByName('title') != "系統管理者" && getCookieByName('title') != "管理者") {
+            window.location.href = "index.php";
+        }
 </script>
 
 </html>

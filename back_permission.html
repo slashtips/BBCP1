@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>權限調整</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +105,7 @@
                     </a>
                 </div>
 
-                <div class="col-6 highLevel">
+                <div class="col-6 ">
                     <a href="backDomainAdd.php">
                         <div class="card">
                             <h3>domain新增</h3>
@@ -121,7 +121,7 @@
                     </a>
                 </div>
 
-                <div class="col-6 highLevel">
+                <div class="col-6 ">
                     <a href="backEmailAddressAdd.php">
                         <div class="card">
                             <h3>客製信箱新增</h3>
@@ -130,9 +130,9 @@
                 </div>
 
                 <div class="col-12 highLevel">
-                    <a href="">
+                    <a href="backSMTP.php">
                         <div class="card">
-                            <h3>信件設定</h3>
+                            <h3>SMTP設定</h3>
                         </div>
                     </a>
                 </div>
@@ -172,23 +172,19 @@
         return cookieObj;
     }
 
-
-
-
     function getCookieByName(name) {
         var value = parseCookie()[name];
         if (value) {
             value = decodeURIComponent(value);
         }
-
         return value;
     }
 
-    if (getCookieByName('title') != "管理者" && getCookieByName('title') != "編輯者") {
-        window.location.href = "index.php";
-    }
+    if (getCookieByName('title') != "系統管理者" && getCookieByName('title') != "管理者") {
+            window.location.href = "index.php";
+        }
 
-    if (getCookieByName('title') == "管理者") {
+    if (getCookieByName('title') == "系統管理者") {
         let highLevel = document.querySelectorAll(".highLevel")
         highLevel.forEach(function (element) {
             element.style = "display:block";

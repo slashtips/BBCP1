@@ -29,16 +29,14 @@ $row = mysqli_fetch_array($res2);
         <h3>調整會員編號<?php echo $_GET["id"]; ?>的資料</h3>
         <form action="Permission_edit_modify.php?i=<?php echo $_GET["id"]; ?>" method="POST">
 
-
             <select name="title" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected value="管理者">管理者</option>
+                <option selected value="系統管理者">系統管理者</option>
+                <option  value="管理者">管理者</option>
                 <option value="醫護人員">醫護人員</option>
             </select>
 
             <input type="submit" value="確定" class="btn btn-outline-success">
             <a href="../backPermissionInfo.php" class="btn btn-outline-danger">取消</a>
-
-
         </form>
     </div>
 </body>
