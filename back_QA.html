@@ -100,7 +100,7 @@
                     </a>
                 </div>
                 <div class="col-12">
-                    <a href="back_QA_EditInfo.php" class="highLevel">
+                    <a href="back_QA_EditInfo.php" >
                         <div class="card">
                             <h3>問答編輯</h3>
                         </div>
@@ -161,16 +161,8 @@
         return value;
     }
 
-    if (getCookieByName('title') != "系統管理者" && getCookieByName('title') != "管理者") {
-            window.location.href = "index.php";
-        }
+    CommonBack()
 
 
-    if (getCookieByName('title') == "管理者") {
-        let highLevel = document.querySelectorAll(".highLevel")
-        highLevel.forEach(function (element) {
-            element.style = "display:block";
-        })
-    }
-
+  
 </script>

@@ -18,7 +18,7 @@ $password1 = $_POST["password1"];
 date_default_timezone_set('Asia/Taipei'); //時區
 $date = date("Y-m-d H:i:s"); //日期
 $photoPath = "pic/Common/userNone.png";
-$title = "未開通";
+$title = "NotOpened";
 
 $sqlError = "SELECT COUNT(email) as email  FROM `users` WHERE email='$email'; ";
 $resError = mysqli_query($connect, $sqlError);

@@ -178,9 +178,7 @@ $res = mysqli_query($connect, $sql);
         return value;
     }
 
-    if (getCookieByName('title') != "管理者") {
-        window.location.href = "index.php";
-    }
+    CommonBack()
 
 
     let btnDeleteCheck = document.querySelectorAll(".btnDeleteCheck");

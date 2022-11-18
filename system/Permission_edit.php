@@ -30,9 +30,9 @@ $row = mysqli_fetch_array($res2);
         <form action="Permission_edit_modify.php?i=<?php echo $_GET["id"]; ?>" method="POST">
 
             <select name="title" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected value="系統管理者">系統管理者</option>
-                <option  value="管理者">管理者</option>
-                <option value="醫護人員">醫護人員</option>
+                <option selected value="SystemAdministrator">SystemAdministrator</option>
+                <option  value="Administrator">Administrator</option>
+                <option value="HealthcareProfessional">HealthcareProfessional</option>
             </select>
 
             <input type="submit" value="確定" class="btn btn-outline-success">

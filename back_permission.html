@@ -180,14 +180,7 @@
         return value;
     }
 
-    if (getCookieByName('title') != "系統管理者" && getCookieByName('title') != "管理者") {
-            window.location.href = "index.php";
-        }
+    CommonBack()
+    HignBlock()
 
-    if (getCookieByName('title') == "系統管理者") {
-        let highLevel = document.querySelectorAll(".highLevel")
-        highLevel.forEach(function (element) {
-            element.style = "display:block";
-        })
-    }
 </script>

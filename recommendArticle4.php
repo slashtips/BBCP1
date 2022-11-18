@@ -312,6 +312,8 @@ $rowGA = mysqli_fetch_array($resGA);
             element.src = "pic/Common/R/r2.png"
         }, false)
     })
+
+    
 </script>
 
 

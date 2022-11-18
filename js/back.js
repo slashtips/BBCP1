@@ -18,3 +18,21 @@ let backMenu = document.querySelector(".backMenu");
 if (backMenu) {
     backMenu.innerHTML = backMenuStr;
 }
+
+
+//CommonBack
+
+function CommonBack() {
+    if (getCookieByName('title') != "SystemAdministrator" && getCookieByName('title') != "Administrator") {
+        window.location.href = "index.php";
+    }
+}
+
+function HignBlock() {
+    if (getCookieByName('title') == "SystemAdministrator") {
+        let highLevel = document.querySelectorAll(".highLevel")
+        highLevel.forEach(function (element) {
+            element.style = "display:block";
+        })
+    }
+}

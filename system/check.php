@@ -3,7 +3,7 @@ include  '../db/db.php';
 $email = $_GET['email'];
 
 // echo $email;
-$sql = "UPDATE `users` SET `status` = '1' ,`title` = '醫護人員'  WHERE `users`.`email` = '$email';";
+$sql = "UPDATE `users` SET `status` = '1' ,`title` = 'HealthcareProfessional'  WHERE `users`.`email` = '$email';";
 $res = mysqli_query($connect, $sql);
 
 $sql2 = "SELECT * FROM `users` WHERE `users`.`email` = '$email';";
