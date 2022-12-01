@@ -72,7 +72,7 @@ $row = mysqli_fetch_array($res2);
             </div>
 
             <input type="submit" value="修改" class="btn btn-outline-success">
-            <a href="../back.html" class="btn btn-outline-danger">取消</a>
+            <a href="../back_user_Info.php" class="btn btn-outline-danger">取消</a>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 刪除
             </button>

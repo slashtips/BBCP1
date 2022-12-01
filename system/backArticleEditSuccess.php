@@ -166,4 +166,4 @@ if ($path && $path2) {
 echo $sql;
 
 $res = mysqli_query($connect, $sql);
-// header("Location:../backArticleEditInfo.php");
+header("Location:../backArticleEditInfo.php");

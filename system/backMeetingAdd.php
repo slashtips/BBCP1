@@ -125,7 +125,7 @@ if ($_FILES['picture']) {
 
 
 $title = $_POST["title"];
-$topicSec = $_POST["topicSec"];
+// $topicSec = $_POST["topicSec"];
 $source = $_POST["source"];
 $content = $_POST["content"];
 $tag = $_POST["tag"];
@@ -140,7 +140,7 @@ $status = 1;
 $publish = 1;
 
 date_default_timezone_set('Asia/Taipei'); //時區
-$sql = "INSERT INTO `meeting` ( `title`,`topicSec`, `source`, `content`, `status`, `publish`, `tag`, `imgPath`, `picture`, `video`, `form`, `date`,`location`, `createTime`, `updateTime`) VALUES ( '$title','$topicSec', '$source', '$content', '0', '0', '$tag', '$path', '$path2', '$video', '$form', '$date', '$location', '$date0', '$date0');";
+$sql = "INSERT INTO `meeting` ( `title`,`topicSec`, `source`, `content`, `status`, `publish`, `tag`, `imgPath`, `picture`, `video`, `form`, `date`,`location`, `createTime`, `updateTime`) VALUES ( '$title','會議活動', '$source', '$content', '1', '1', '$tag', '$path', '$path2', '$video', '$form', '$date', '$location', '$date0', '$date0');";
 $res = mysqli_query($connect, $sql);
 
 

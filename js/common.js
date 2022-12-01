@@ -173,7 +173,7 @@ let menuRight =
                     <h6 class="title"></h6>
                     <li><a href="personal.php">個人主頁</a></li>
                     <li class="hide" ><a href="MedicalArea.php">醫護專區</a></li>
-                    <li class="hide backHide" ><a href="back.html" style="display:none" target="_blank">後台管理</a></li>
+                    <li class="hide backHide" style="display:none" ><a href="back.html"  target="_blank">後台管理</a></li>
                 </ul>
 
             </div>
@@ -412,9 +412,10 @@ if (loginSmall) {
                 <img class="eye" src="pic/Common/eyeClose.png">
             </div>
             <div class="hintSmall">
-                <div class="checkboxGroup">
-                    <input type="checkbox" id="rememberSmall">
+            <div class="checkboxGroup">
+            <!--<input type="checkbox" id="rememberSmall">
                     <label for="rememberSmall">記住我</label>
+                    -->
                 </div>
                 <a class="loginSmallForgetLink" href="#">忘記密碼</a>
             </div>
@@ -706,8 +707,9 @@ let loginStr =
             </div>
             <div class="hint">
                 <div class="remember">
+                <!--
                     <input type="checkbox" value="" id="remember">
-                    <label for="remember">記住我</label>
+                    <label for="remember">記住我</label>-->
                 </div>
                 <a href="#">忘記密碼</a>
             </div>
@@ -2707,7 +2709,7 @@ if (getCookieByName('username') && getCookieByName('loginStatus') == 1) {
 //後台選單隱藏
 let backHide = document.querySelector(".backHide");
 if (backHide) {
-    if (getCookieByName('username')  && (getCookieByName('title') == "管理者" ||getCookieByName('title') == "編輯者")) {
+    if ((getCookieByName('title') == "SystemAdministrator" || getCookieByName('title') == "Administrator")) {
         backHide.style = "display:block"
     }
 }
@@ -2754,7 +2756,7 @@ if (OutHrefClose) {
 
 let roche = "roche.com.tw";
 let QRcode1 = "https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"
-let QRcode2 = "https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"
+let QRcode2 = "https://docs.google.com/forms/d/e/1FAIpQLSewiuwti3Lxfy0gBdoQBB3gF4TKXQPoxTfjFJ8DcEybJgKIHQ/viewform"
 let hostName = window.location.hostname;
 // let URLArray = []
 // URLArray.push(hostName, roche, QRcode1, QRcode2)
@@ -2824,7 +2826,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let roche = "roche.com.tw";
     let QRcode1 = "https://docs.google.com/forms/d/e/1FAIpQLSdcahJWxvRUTPQgpmK49R6wTRwRXwCWAOYE7skQeCDZ61HxuA/viewform"
-    let QRcode2 = "https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"
+    let QRcode2 = "https://docs.google.com/forms/d/e/1FAIpQLSewiuwti3Lxfy0gBdoQBB3gF4TKXQPoxTfjFJ8DcEybJgKIHQ/viewform"
     let hostName = window.location.hostname;
     // let URLArray = []
     // URLArray.push(hostName, roche, QRcode1, QRcode2)

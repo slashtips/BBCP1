@@ -90,6 +90,13 @@ $res = mysqli_query($connect, $sql);
 
 
     <div class="container">
+        <div class="PageNumber text-end mt-4">
+            <span>每頁分頁量</span> <input min="10" type="number" placeholder="最小為10">
+            <input type="button" value="啟動分頁" class="btn btn-outline-success paginationBtn">
+            <ul class=" justify-content-center align-items-center pagination pagination1  " style="flex-wrap: wrap">
+
+            </ul>
+        </div>
         <div class="table-responsive"></div>
         <table class="table table-striped table-hover">
             <thead>
@@ -148,6 +155,177 @@ $res = mysqli_query($connect, $sql);
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
 
 <script>
+    //分頁
+    let table = document.querySelector('.table');
+    let rows = table.rows;
+    let table_length = table.rows.length;
+    let PageNumber = document.querySelector(".PageNumber input[type='number']");
+    let PageButton = document.querySelector(".PageNumber input[type='button']");
+    PageButton.addEventListener('click', function(e) {
+        //console.clear();
+
+        let rowsLength = rows.length - 1;
+        let pageNumberValue = PageNumber.value;
+        //防呆 使用者輸入小於10
+        if (pageNumberValue < 10) {
+            PageNumber.value = 10
+            pageNumberValue = 10
+        }
+        //限制不能超過最大資料量
+        if (pageNumberValue > rowsLength) {
+            pageNumberValue = rowsLength
+        }
+        let page = Math.ceil(rowsLength / pageNumberValue);
+        localStorage.setItem('PageNumber', page)
+
+
+        localStorage.setItem('pageNumberValue', PageNumber.value)
+        let PageItems = document.querySelector('.pagination1')
+        //PageItems.innerHTML = "";
+
+
+        //創建li
+        pageStr = ''
+        let TotalNumber = `<span class='text-primary me-2' >總共${rows.length-1}筆</span>`
+        let Previous = ' <li class="page-item "> <a class = "page-link"href = "#"aria - label = "Previous" > « </a > </li>'
+        let next = ' <li class = "page-item " ><a class = "page-link"href = "#"aria - label = "Next" > » </a> </li>'
+        for (let i = 1; i <= page; i++) {
+            pageStr += `<li class="page-item"><a class="page-link page-number" href="#">${i}</a></li>`
+        }
+        PageItems.innerHTML = TotalNumber + Previous + pageStr + next;
+
+        //內容分頁
+
+        //  獲取數值
+
+
+        //創建數值紀錄 預設第一頁
+
+        //表格清除
+
+        //看到時預設第一頁
+
+
+
+        //
+
+
+
+
+        // item.addEventListener('click', function(e) {
+        //     event.preventDefault();
+
+
+        //     let number = parseInt(e.target.textContent)
+        //     pagenumber = number
+
+        //     for (let i = (pagenumber - 1) * pageNumberValue; i < pagenumber * pageNumberValue; i++) {
+        //         table3Str += array[i + 1];
+        //         if (array[i + 1] == undefined) {
+        //             return
+        //         }
+        //         // console.log(array[i+1]);
+        //     }
+        // }, false)
+
+        // console.log(tbody3);
+
+        console.log("頁數 : " + page + "每頁資料" + pageNumberValue);
+        pageNumberValue = parseInt(pageNumberValue)
+        console.log(typeof(pageNumberValue));
+
+        //分頁表格建置
+
+
+
+
+        // for (let i = 1; i < array.length; i += pageNumberValue) {
+        //     for (let j = i; j < i + pageNumberValue; j++) {
+        //         if (j > array.length) return
+        //         console.log(j);
+        //     }
+
+        // }
+
+
+
+        // let newList = document.createElement('li');
+        // newList.className = "page-item";
+        // let textNode = document.createTextNode(page);
+        // PageItems.appendChild(textNode);
+        // PageItems.appendChild(newList);
+
+        //點擊按鈕一下
+        document.querySelector('.page-number').click();
+        document.querySelector('.PageNumber input[type=number]').style = "display:none"
+        document.querySelector('.PageNumber .paginationBtn').style = "display:none"
+        document.querySelector('.PageNumber span').style = "display:none"
+    }, false)
+
+
+    ///!分頁表格程式
+    let RowsArray = [];
+    for (let i = 0; i < rows.length; i++) {
+        RowsArray.push(rows[i])
+    }
+    let pagination1 = document.querySelector('.pagination1')
+    let tbody2 = document.querySelector('.table tbody')
+    pagination1.addEventListener('click', function(e) {
+
+        let str = e.target.textContent.trim();
+        let number
+        //切換的時候 取消選取 select_all 
+        // let select_all = document.querySelector('.select_all')
+        // select_all.checked = false
+        //解決冒泡事件最外層會點到UL
+        if (e.target.nodeName == "UL") {
+            return
+        }
+        //跳到最前面
+        else if (str == "«") {
+            let pageNumberValue = parseInt(localStorage.getItem("pageNumberValue"))
+            tbody2.innerHTML = ""
+            for (let i = (1 - 1) * pageNumberValue; i < 1 * pageNumberValue; i++) {
+
+                if (RowsArray[i + 1] == undefined) {
+                    return
+                }
+                tbody2.appendChild(RowsArray[i + 1])
+            }
+        }
+        //跳到最後面
+        else if (str == "»") {
+            let thisNumber = parseInt(localStorage.getItem("PageNumber"))
+            let pageNumberValue = parseInt(localStorage.getItem("pageNumberValue"))
+            tbody2.innerHTML = ""
+            for (let i = (thisNumber - 1) * pageNumberValue; i < thisNumber * pageNumberValue; i++) {
+
+                if (RowsArray[i + 1] == undefined) {
+                    return
+                }
+                tbody2.appendChild(RowsArray[i + 1])
+            }
+        } else {
+            number = parseInt(str)
+        }
+        if (number != undefined) {
+
+            let pageNumberValue = parseInt(localStorage.getItem("pageNumberValue"))
+            tbody2.innerHTML = ""
+            for (let i = (number - 1) * pageNumberValue; i < number * pageNumberValue; i++) {
+
+                if (RowsArray[i + 1] == undefined) {
+                    return
+                }
+                tbody2.appendChild(RowsArray[i + 1])
+            }
+            table.appendChild(tbody2)
+        }
+
+    }, true)
+
+    
+
     //Cookie讀取
     function parseCookie() {
         var cookieObj = {};

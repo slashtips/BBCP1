@@ -247,11 +247,11 @@ $rowGA = mysqli_fetch_array($resGA);
             </div>
             <div class="line">
                 <h4>還有甚麼想了解的資訊嗎？<br>來這裡選擇您想知道的主題吧！</h4>
-                <a href="https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"><img class="QRcode" src="pic/Common/QRcode2.png" alt=""></a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSewiuwti3Lxfy0gBdoQBB3gF4TKXQPoxTfjFJ8DcEybJgKIHQ/viewform"><img class="QRcode" src="pic/Common/QRcode2.png" alt=""></a>
 
             </div>
             <div class="lineBtn">
-                <a href="https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"><img src="pic/Common/lineBtn2.png" alt=""></a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSewiuwti3Lxfy0gBdoQBB3gF4TKXQPoxTfjFJ8DcEybJgKIHQ/viewform"><img src="pic/Common/lineBtn2.png" alt=""></a>
             </div>
 
         </div>
@@ -284,7 +284,7 @@ $rowGA = mysqli_fetch_array($resGA);
     let lineImgSmall = document.querySelector(".menum .line .left a img");
     if (lineImgSmall) {
         lineImgSmall.src = "pic/Common/QRcode2.png";
-        lineImgSmall.parentNode.href = "https://pollev.com/discourses/xXA3GxrcbYsfjrSMFsOqz/respond"
+        lineImgSmall.parentNode.href = "https://docs.google.com/forms/d/e/1FAIpQLSewiuwti3Lxfy0gBdoQBB3gF4TKXQPoxTfjFJ8DcEybJgKIHQ/viewform"
     }
 </script>
 

@@ -8,7 +8,6 @@ $row = mysqli_fetch_array($res2);
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +25,7 @@ $row = mysqli_fetch_array($res2);
 	<div class="backMenu"></div>
 	<div class="container text-center">
 		<h1>編輯文章</h1>
-		<form action="system/backArticleMedicalEditSuccess.php" method="post">
+		<form action="system/backArticleMedicalEditSuccess.php" method="post" enctype="multipart/form-data">
 			<!-- 
 			<div class="mb-3">
 				<label for="title" class="form-label">主題分類</label>
@@ -71,6 +70,8 @@ $row = mysqli_fetch_array($res2);
 					<option value="營養健康">營養健康</option>
 				</select>
 			</div>
+
+
 			<div class="mb-3">
 				<label for="title" class="form-label">文章標題</label>
 				<input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" value="<?php echo $row['title']; ?>">
@@ -79,13 +80,47 @@ $row = mysqli_fetch_array($res2);
 				<label for="source" class="form-label">資訊來源 : </label><br>
 				<input type="text" name="source" class="form-control" id="source" aria-describedby="basic-addon3" value="<?php echo $row['source']; ?>">
 			</div>
+
+
+			<!-- <div class="form-check form-switch d-flex justify-content-center">
+				<label class="form-check-label w-25" for="flexSwitchCheckDefault">封面圖片</label>
+			</div> -->
+
+
+
+
+
+			<div class="mb-3 ">
+				<label for="">背景圖片</label>
+				<div class="d-flex">
+					<input class="form-control " disabled type="file" id="formFile" name="articlePath" accept="image/*" type="file">
+					<input type="checkbox" class="btn-check" id="backgroundBtn" autocomplete="off">
+					<label class="btn btn-outline-primary " style="white-space:nowrap;" for="backgroundBtn">更換</label><br>
+				</div>
+
+			</div>
+
+			<div class="mb-3 ">
+				<label for="">文章圖片</label>
+				<div class="d-flex">
+					<input class="form-control" disabled type="file" name="picture" id="picture" accept="image/*" type="file">
+					<input type="checkbox" class="btn-check" id="articlePicBtn" autocomplete="off">
+					<label class="btn btn-outline-primary  " style="white-space:nowrap;" for="articlePicBtn">更換</label><br>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="video" class="form-label">影片遷入</label><br>
+				<input type="text" name="video" class="form-control" id="video" value="<?php echo $row['video']; ?>" aria-describedby="basic-addon3">
+			</div>
+
 			<div class="mb-3">
 				<label for="content" class="form-label">文章內容 : </label><br>
 				<textarea class="editor" name="content" id="content" cols="60" rows="10"><?php echo $row['content']; ?></textarea>
 			</div>
 
 			<input type="submit" value="儲存" class="btn btn-outline-success">
-			<a class="btn btn-outline-secondary" href="backArticleMedicalEditInfo.php">取消</a>
+			<a class="btn btn-outline-secondary" href="backArticleEditInfo.php">取消</a>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 		</form>
 	</div>
@@ -126,6 +161,30 @@ $row = mysqli_fetch_array($res2);
 		console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
 		console.warn('Build id: o4gf688yeo0p-bs15lyxfaktr');
 		console.error(error);
+	}
+
+
+	//更換圖片按鈕
+	let backgroundBtn = document.querySelector("#backgroundBtn");
+	if (backgroundBtn) {
+		backgroundBtn.addEventListener("click", function(e) {
+			if (this.checked == true) {
+				document.querySelector("#formFile").disabled = false;
+			} else {
+				document.querySelector("#formFile").disabled = true;
+			}
+		}, false)
+	}
+	//更換文章圖片
+	let articlePicBtn = document.querySelector("#articlePicBtn");
+	if (articlePicBtn) {
+		articlePicBtn.addEventListener("click", function(e) {
+			if (this.checked == true) {
+				document.querySelector("#picture").disabled = false;
+			} else {
+				document.querySelector("#picture").disabled = true;
+			}
+		}, false)
 	}
 
 

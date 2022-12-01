@@ -2,8 +2,8 @@
 include  '../db/db.php';
 $title = $_POST['title'];
 $content = $_POST['content'];
-$status = 0;
-$publish = 0;
+$status = 1;
+$publish = 1;
 date_default_timezone_set('Asia/Taipei'); //時區
 $date = date("Y-m-d H:i:s"); //日期
 

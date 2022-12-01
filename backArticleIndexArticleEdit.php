@@ -104,14 +104,14 @@ $row = mysqli_fetch_array($res2);
 				<label for="">文章圖片</label>
 				<div class="d-flex">
 					<input class="form-control" disabled type="file" name="picture" id="picture" accept="image/*" type="file">
-					<input type="checkbox" class="btn-check" id="articlePicBtn" autocomplete="off" >
+					<input type="checkbox" class="btn-check" id="articlePicBtn" autocomplete="off">
 					<label class="btn btn-outline-primary  " style="white-space:nowrap;" for="articlePicBtn">更換</label><br>
 				</div>
 			</div>
 
 			<div class="mb-3">
 				<label for="video" class="form-label">影片遷入</label><br>
-				<input type="text" name="video" class="form-control" id="video" aria-describedby="basic-addon3">
+				<input type="text" name="video" class="form-control" id="video" value="<?php echo $row['video']; ?>" aria-describedby="basic-addon3">
 			</div>
 
 			<div class="mb-3">

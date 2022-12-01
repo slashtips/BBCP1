@@ -10,7 +10,7 @@ $SMTP_Password = $row["SMTP_Password"];
 $Port = $row["Port"];
 $Send_ID = $row["Send_ID"];
 $email = $_POST['Email'];
-
+$Reply_Email = $row["Reply_Email"];
 // require 'include/PHPMailer/src/Exception.php';
 // require 'include/PHPMailer/src/PHPMailer.php';
 // require 'include/PHPMailer/src/SMTP.php';
@@ -43,7 +43,7 @@ try {
     $mail->setFrom($SMTP_Email, $Send_ID);  //发件人
     $mail->addAddress($email, $lastName);  // 收件人
     //$mail->addAddress('ellen@example.com');  // 可添加多个收件人
-    $mail->addReplyTo($SMTP_Email, 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+    $mail->addReplyTo($Reply_Email, 'reply'); //回复的时候回复给哪个邮箱 建议和发件人一致
     //$mail->addCC('cc@example.com');                    //抄送
     // $mail->addBCC('royz1110110@gmail.com');                    //密送
 

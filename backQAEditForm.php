@@ -1,7 +1,7 @@
 <?php
 include  'db/db.php';
 
-$sql2 = "SELECT * FROM `QA` where `id` = '$_GET[i]' order by `id` DESC";
+$sql2 = "SELECT * FROM `QA` where `id` = '$_GET[id]' order by `id` DESC";
 $res2 = mysqli_query($connect, $sql2);
 $row = mysqli_fetch_array($res2);
 
@@ -30,6 +30,7 @@ $row = mysqli_fetch_array($res2);
 <body>
 	<div class="backMenu"></div>
 	<div class="container text-center">
+	
 		<h1>編輯QA</h1>
 		<form action="system/backQAEditSuccess.php" method="post">
 			<div class="mb-3">
@@ -38,6 +39,7 @@ $row = mysqli_fetch_array($res2);
 			</div>
 			<div class="mb-3">
 				<div class="row">
+					
 					<div class="col-12 topicSec">
 						<label for="topicSec" class="form-label">標籤</label>
 						<select class="form-select" id="topicSec" name="topicSec" aria-label="Default select example">

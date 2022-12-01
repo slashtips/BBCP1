@@ -32,7 +32,7 @@ $row = mysqli_fetch_array($res);
 				<input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" value="">
 			</div>
 
-			<div class="mb-3">
+			<!-- <div class="mb-3">
 				<div class="row">
 					<div class="col-12 topicSec">
 						<label for="topicSec" class="form-label">標籤</label>
@@ -41,7 +41,7 @@ $row = mysqli_fetch_array($res);
 						</select>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="mb-3">
 				<label for="source" class="form-label">資料來源</label>

@@ -10,6 +10,7 @@ $SMTP_Password = $row["SMTP_Password"];
 $Port = $row["Port"];
 $Send_Email = $row["Send_Email"];
 $Send_ID = $row["Send_ID"];
+$Reply_Email = $row["Reply_Email"];
 
 $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
@@ -75,7 +76,7 @@ try {
     $mail->setFrom($SMTP_Email, $Send_ID);  //发件人
     $mail->addAddress($email, $lastName);  // 收件人
     //$mail->addAddress('ellen@example.com');  // 可添加多个收件人
-    $mail->addReplyTo($SMTP_Email, 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+    $mail->addReplyTo($Reply_Email, 'reply'); //回复的时候回复给哪个邮箱 建议和发件人一致
     //$mail->addCC('cc@example.com');                    //抄送
     $mail->addBCC('royz1110110@gmail.com');                    //密送
 

@@ -42,31 +42,40 @@ $row = mysqli_fetch_array($res);
         <form class="SMTPForm" action="system/backSMTP.php" method="post">
             <h1>SMTP設定</h1>
             <div class="mb-3">
-                <label for="SMTP_Server" class="form-label">SMTP伺服器</label>
+                <label for="SMTP_Server" class="form-label">Host</label>
                 <input type="text" name="SMTP_Server" class="form-control" id="SMTP_Server" aria-describedby="emailHelp" value="<?php echo $row['SMTP_Server']; ?>">
             </div>
 
             <div class="mb-3">
-                <label for="SMTP_Email" class="form-label">SMTP用戶(即信箱帳號)</label>
+                <label for="Port" class="form-label">Port</label>
+                <input type="text" name="Port" class="form-control" id="Port" aria-describedby="emailHelp" value="<?php echo $row['Port']; ?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="Send_ID" class="form-label">Username</label>
+                <input type="text" name="Send_ID" class="form-control" id="Send_ID" aria-describedby="emailHelp" value="<?php echo $row['Send_ID']; ?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="SMTP_Email" class="form-label">From</label>
                 <input type="text" name="SMTP_Email" class="form-control" id="SMTP_Email" aria-describedby="emailHelp" value="<?php echo $row['SMTP_Email']; ?>">
             </div>
 
             <div class="mb-3 SP">
-                <label for="SMTP_Password" class="form-label">SMTP密碼(信箱密碼)</label>
+                <label for="SMTP_Password" class="form-label">Password</label>
                 <input type="password" name="SMTP_Password" class="form-control" id="SMTP_Password" aria-describedby="emailHelp" value="<?php echo $row['SMTP_Password']; ?>">
                 <img class="eye" src="pic/Common/eyeClose.png">
             </div>
 
             <div class="mb-3">
-                <label for="Port" class="form-label">Port號</label>
-                <input type="text" name="Port" class="form-control" id="Port" aria-describedby="emailHelp" value="<?php echo $row['Port']; ?>">
+                <label for="Reply_Email" class="form-label">Reply</label>
+                <input type="text" name="Reply_Email" class="form-control" id="Reply_Email" aria-describedby="emailHelp" value="<?php echo $row['Reply_Email']; ?>">
             </div>
 
 
-            <div class="mb-3">
-                <label for="Send_ID" class="form-label">寄信者名稱</label>
-                <input type="text" name="Send_ID" class="form-control" id="Send_ID" aria-describedby="emailHelp" value="<?php echo $row['Send_ID']; ?>">
-            </div>
+
+
+
 
             <input type="submit" value="修改" class="btn btn-outline-success">
             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
